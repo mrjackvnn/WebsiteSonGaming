@@ -16,9 +16,9 @@ namespace WebsiteSonGaming.Controllers
             return View(db.SANPHAM.OrderBy(n=>n.giaban).Take(6).ToList());
         }
 
-        public ActionResult ChiTiet()
+        public ActionResult ChiTiet(int id)
         {
-            return View();
+            return View(db.SANPHAM.SingleOrDefault(n=>n.masanpham == id));
         }
 
         public ActionResult LoaiSanPham(int id)
