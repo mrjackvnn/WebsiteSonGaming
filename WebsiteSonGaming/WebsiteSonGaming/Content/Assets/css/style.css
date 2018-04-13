@@ -1,0 +1,26 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+a{color:white;}
+
+div.list-group a{color:black;}
+
+#MainBenPhai {margin-top:24px;}
+
+
+#SanPham a{color:black;}
+#SanPham img {height:250px;overflow:hidden;}
+
