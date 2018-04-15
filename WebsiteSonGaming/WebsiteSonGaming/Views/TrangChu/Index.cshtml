@@ -37,16 +37,16 @@
     {
         <div class="col-lg-4 col-md-6 mb-4" id="SanPham">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="~/Images/HinhSanPham/@item.hinhsanpham" alt="@item.tensanpham" /></a>
+                <a href="@Url.Action("ChiTiet","TrangChu",new { @id = item.masanpham})"><img class="card-img-top" src="~/Images/HinhSanPham/@item.hinhsanpham" alt="@item.tensanpham" /></a>
                 <div class="card-body">
                     @*//Tên sản phẩm*@
                     @if (item.tensanpham.Length > 25)
                     {
-                        <h4 class="card-title"><a href="#">@item.tensanpham.Substring(0, 25)...</a></h4>
+                        <h4 class="card-title"><a href="@Url.Action("ChiTiet","TrangChu",new { @id = item.masanpham})">@item.tensanpham.Substring(0, 25)...</a></h4>
                     }
                     else
                     {
-                        <h4 class="card-title"><a href="#">@item.tensanpham</a></h4>
+                        <h4 class="card-title"><a href="@Url.Action("ChiTiet","TrangChu",new { @id = item.masanpham})">@item.tensanpham</a></h4>
                     }
 
                     @*//Mô tả sản phẩm*@

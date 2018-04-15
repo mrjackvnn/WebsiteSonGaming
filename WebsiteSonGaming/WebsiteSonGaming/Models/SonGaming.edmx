@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="mahoadon" />
           </Key>
-          <Property Name="mahoadon" Type="int" Nullable="false" />
+          <Property Name="mahoadon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="makh" Type="int" />
           <Property Name="ngaydat" Type="datetime" />
         </EntityType>

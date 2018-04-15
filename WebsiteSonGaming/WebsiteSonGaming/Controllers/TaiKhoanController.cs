@@ -47,11 +47,22 @@ namespace WebsiteSonGaming.Controllers
             KHACHHANG kh = db.KHACHHANG.SingleOrDefault(n => n.taikhoan == strTaiKhoan && n.matkhau == strMatKhau);
             if(kh != null)
             {
-                ViewBag.ThongBao = "Đăng Nhập thành công";
                 Session["TaiKhoan"] = kh;
-                return View();
+                return RedirectToAction("DangNhapThanhCong");
+            }
+            if(strTaiKhoan==null)
+            {
+                ViewBag.LoiDangNhap = "Tên đăng nhập không được để trống";
+            }
+            if(strMatKhau==null)
+            {
+                ViewBag.LoiMatKhau = "Mật khẩu không được để trống";
             }
             ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+            return View();
+        }
+        public ActionResult DangNhapThanhCong()
+        {
             return View();
         }
     }

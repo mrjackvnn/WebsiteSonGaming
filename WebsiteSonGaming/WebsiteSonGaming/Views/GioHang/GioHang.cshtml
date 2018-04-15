@@ -7,10 +7,7 @@
 
 <h2>Thông tin Giỏ hàng</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table" style="text-align:center;border:1px solid;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.First().imasanpham)
@@ -30,30 +27,44 @@
         <th>
             @Html.DisplayNameFor(model => model.First().dthanhtien)
         </th>
+        <th></th>
+        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.imasanpham)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.strtensanpham)
-        </td>
-        <td>
-            <img style="height:100px;width:100px;overflow:hidden;" src="~/Images/HinhSanPham/@item.strhinhsanpham" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isoluong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dgiaban)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dthanhtien)
-        </td> 
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.imasanpham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strtensanpham)
+            </td>
+            <td>
+                <img style="height:100px;width:100px;overflow:hidden;" src="~/Images/HinhSanPham/@item.strhinhsanpham" />
+            </td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @imasanpham = item.imasanpham }))
+            {
+                <td>
+                    <input type="number" name="txtSoLuong" value="@item.isoluong" style="width:40px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dgiaban)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dthanhtien)
+                </td>
+                <td>
+                    <input type="submit" value="Cập Nhật" class="btn btn-dark" />
+                </td>
+            }
+            <td>
+                <a href="@Url.Action("XoaGioHang","GioHang",new {imasanpham = item.imasanpham })">
+                    <input type="submit" class="btn btn-dark" value="Xóa" />
+                </a>
+            </td>
+        </tr>
+    }
 
 </table>
 
@@ -61,6 +72,10 @@
     <input type="submit" class="btn btn-dark" value="Tiếp tục mua hàng" />
 </a>
 
-<a href="@Url.Action("Index","TrangChu")">
-    <input type="submit" class="btn btn-dark" value="Chỉnh sửa giỏ hàng" />
+<a href="@Url.Action("XoaTatCaGioHang","GioHang")">
+    <input type="submit" class="btn btn-dark" value="Xóa Tất Cả Giỏ Hàng" />
+</a>
+
+<a href="@Url.Action("MuaHang","GioHang")">
+    <input type="submit" class="btn btn-dark" value="Mua Hàng" />
 </a>
