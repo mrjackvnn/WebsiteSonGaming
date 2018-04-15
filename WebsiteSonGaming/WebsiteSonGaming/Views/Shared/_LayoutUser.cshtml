@@ -27,10 +27,10 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        @Html.Action("GioHangPartial","GioHang")
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="@Url.Action("DangNhap","TaiKhoan")">Đăng Nhập</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("DangKy","TaiKhoan")">Đăng Ký</a>

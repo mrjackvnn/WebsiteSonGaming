@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebsiteSonGaming.Models.GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Thông tin Giỏ hàng</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().imasanpham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().strtensanpham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().strhinhsanpham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().isoluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().dgiaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().dthanhtien)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.imasanpham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strtensanpham)
+        </td>
+        <td>
+            <img style="height:100px;width:100px;overflow:hidden;" src="~/Images/HinhSanPham/@item.strhinhsanpham" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isoluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dgiaban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dthanhtien)
+        </td> 
+    </tr>
+}
+
+</table>
+
+<a href="@Url.Action("Index","TrangChu")">
+    <input type="submit" class="btn btn-dark" value="Tiếp tục mua hàng" />
+</a>
+
+<a href="@Url.Action("Index","TrangChu")">
+    <input type="submit" class="btn btn-dark" value="Chỉnh sửa giỏ hàng" />
+</a>

@@ -45,15 +45,13 @@ namespace WebsiteSonGaming.Controllers
             string strTaiKhoan = f.Get("txtTenDangNhap").ToString();
             string strMatKhau = f.Get("txtMatKhau").ToString();
             KHACHHANG kh = db.KHACHHANG.SingleOrDefault(n => n.taikhoan == strTaiKhoan && n.matkhau == strMatKhau);
-            if(kh == null)
-            {
-                ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
-            }
-            else
+            if(kh != null)
             {
                 ViewBag.ThongBao = "Đăng Nhập thành công";
+                Session["TaiKhoan"] = kh;
                 return View();
             }
+            ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
             return View();
         }
     }

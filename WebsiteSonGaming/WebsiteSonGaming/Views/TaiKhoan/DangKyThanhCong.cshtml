@@ -5,5 +5,7 @@
 }
 
 <h2>Chúc mừng bạn đã đăng ký thành công</h2>
-
-@Html.ActionLink("Click vào đây để về lại trang chủ","Index","TrangChu")
+<style>
+    .DangKyThanhCong {color:black;}
+</style>
+@Html.ActionLink("Click vào đây để về lại trang chủ","Index","TrangChu",new { @class="DangKyThanhCong"})

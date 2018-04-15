@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +157,7 @@
     <Compile Include="Models\CHITIETHOADON.cs">
       <DependentUpon>SonGaming.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HOADON.cs">
       <DependentUpon>SonGaming.tt</DependentUpon>
     </Compile>
@@ -166,6 +168,7 @@
       <DependentUpon>SonGaming.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MetaData\KhachHangMetaData.cs" />
+    <Compile Include="Models\MetaData\SanPhamMetaData.cs" />
     <Compile Include="Models\NHASANXUAT.cs">
       <DependentUpon>SonGaming.tt</DependentUpon>
     </Compile>
@@ -471,6 +474,8 @@
     <Content Include="Views\TaiKhoan\DangKy.cshtml" />
     <Content Include="Views\TaiKhoan\DangNhap.cshtml" />
     <Content Include="Views\TaiKhoan\DangKyThanhCong.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
