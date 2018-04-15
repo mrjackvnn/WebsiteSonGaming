@@ -23,6 +23,7 @@
     <EntitySetMapping Name="KHACHHANG">
       <EntityTypeMapping TypeName="SonGamingModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="tenkhachhang" ColumnName="tenkhachhang" />
           <ScalarProperty Name="makh" ColumnName="makh" />
           <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
           <ScalarProperty Name="matkhau" ColumnName="matkhau" />

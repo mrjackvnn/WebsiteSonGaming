@@ -33,7 +33,7 @@
                         <a class="nav-link" href="#">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="@Url.Action("DangKy","TaiKhoan")">Đăng Ký</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +52,10 @@
                 </div>
             </div>
             <!-- /.col-lg-3 -->
-            @RenderBody()
+            <div class="col-lg-10">
+                @RenderBody()
+            </div>
+            
             <!-- /.col-lg-9 -->
         </div>
         <!-- /.row -->

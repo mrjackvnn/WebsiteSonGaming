@@ -25,6 +25,7 @@ namespace WebsiteSonGaming.Models
         public string matkhau { get; set; }
         public string sodienthoai { get; set; }
         public string diachi { get; set; }
+        public string tenkhachhang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADON { get; set; }
