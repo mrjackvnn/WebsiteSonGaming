@@ -22,7 +22,7 @@
     <Key>
       <PropertyRef Name="makh" />
     </Key>
-    <Property Name="makh" Type="int" Nullable="false" />
+    <Property Name="makh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tenkhachhang" Type="nvarchar" MaxLength="250" />
     <Property Name="taikhoan" Type="nvarchar" MaxLength="250" />
     <Property Name="matkhau" Type="nvarchar" MaxLength="250" />

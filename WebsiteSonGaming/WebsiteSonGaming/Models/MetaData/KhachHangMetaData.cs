@@ -15,24 +15,24 @@ namespace WebsiteSonGaming.Models
             public int makh { get; set; }
 
             [Display(Name = "Tên đăng nhập")]
-            [Required(ErrorMessage = "Yêu cầu nhập tên đăng nhập")]
+            [Required(ErrorMessage = "{0} Không được để trống")]
             public string taikhoan { get; set; }
 
             [Display(Name = "Mật khẩu")]
             [StringLength(20, MinimumLength = 6, ErrorMessage = "Độ dài mật khẩu ít nhất 6 kí tự !")]
-            [Required(ErrorMessage = "Yêu cầu nhập mật khẩu")]
+            [Required(ErrorMessage = "{0} Không được để trống")]
             public string matkhau { get; set; }
 
             [Display(Name = "Điện thoại")]
-            [Required(ErrorMessage = "Yêu cầu nhập số điện thoại")]
+            [Required(ErrorMessage = "{0} Không được để trống")]
             public string sodienthoai { get; set; }
 
             [Display(Name = "Địa chỉ")]
-            [Required(ErrorMessage = "Yêu cầu nhập địa chỉ")]
+            [Required(ErrorMessage = "{0} Không được để trống")]
             public string diachi { get; set; }
 
             [Display(Name = "Họ tên")]
-            [Required(ErrorMessage = "Yêu cầu nhập họ tên")]
+            [Required(ErrorMessage = "{0} Không được để trống")]
             public string tenkhachhang { get; set; }
         }
     }

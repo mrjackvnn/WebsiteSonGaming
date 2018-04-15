@@ -24,3 +24,4 @@ div.list-group a{color:black;}
 #SanPham a{color:black;}
 #SanPham img {height:250px;overflow:hidden;}
 
+.container a:hover{color:black;}

@@ -18,10 +18,42 @@ namespace WebsiteSonGaming.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult DangKy(KHACHHANG kh)
         {
-            db.KHACHHANG.Add(kh);
-            db.SaveChanges();
+            if(ModelState.IsValid)
+            {
+                db.KHACHHANG.Add(kh);
+                db.SaveChanges();
+                return RedirectToAction("DangKyThanhCong");
+            }
+            return View(kh);
+            
+        }
+        public ActionResult DangKyThanhCong()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult DangNhap()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection f)
+        {
+            string strTaiKhoan = f.Get("txtTenDangNhap").ToString();
+            string strMatKhau = f.Get("txtMatKhau").ToString();
+            KHACHHANG kh = db.KHACHHANG.SingleOrDefault(n => n.taikhoan == strTaiKhoan && n.matkhau == strMatKhau);
+            if(kh == null)
+            {
+                ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+            }
+            else
+            {
+                ViewBag.ThongBao = "Đăng Nhập thành công";
+                return View();
+            }
             return View();
         }
     }

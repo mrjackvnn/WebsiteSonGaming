@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\SON SI HO\Desktop\WebsiteSonGaming\WebsiteSonGaming\Models\SonGaming.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\Models\SonGaming.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
