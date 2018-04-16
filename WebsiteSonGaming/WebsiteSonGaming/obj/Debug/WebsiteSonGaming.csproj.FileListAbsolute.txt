@@ -292,3 +292,7 @@ C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteS
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.csproj.CopyComplete
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.dll
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.pdb
+C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\PagedList.dll
+C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\PagedList.Mvc.dll
+C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\PagedList.xml
+C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\PagedList.Mvc.xml
