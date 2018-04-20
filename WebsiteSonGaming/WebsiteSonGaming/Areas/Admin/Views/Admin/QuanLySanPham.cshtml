@@ -59,7 +59,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.giaban)</td>
                                 <td>@Html.DisplayFor(modelItem => item.NHASANXUAT.tennsx)</td>
                                 <td>@Html.DisplayFor(modelItem => item.LOAISANPHAM.tenloai)</td>
-                                <td><img src="@Url.Content("~/Images/HinhSanPham/"+  item.hinhsanpham)" style="width:100px;height:100px;overflow:hidden;" /></td>
+                                <td><img src="@Url.Content("~/Assets/Images/HinhSanPham/"+  item.hinhsanpham)" style="width:100px;height:100px;overflow:hidden;" /></td>
                                 <td>@Truncate(item.thongtin, 100)</td>
                                 <td>
                                     <a href="@Url.Action("SuaSanPham","Admin",new { id = item.masanpham})">

@@ -7,7 +7,7 @@
 
 
 <h2 style="text-align:center">THÔNG TIN HÓA ĐƠN</h2>
-<table align="center" border="1" class="table">
+<table align="center" border="1" class="table">f
     <tr style="text-align:center; font-weight:bold">
         <td> Tên Sản Phẩm </td>
         <td> Hình Sản Phẩm </td>
@@ -19,7 +19,7 @@
     {
         <tr style="text-align:center; font-weight:bold">
             <td> @item.strtensanpham</td>
-            <td><img style="height:100px;width:100px;overflow:hidden;" src="~/Images/HinhSanPham/@item.strhinhsanpham"></td>
+            <td><img style="height:100px;width:100px;overflow:hidden;" src="~/Assets/Images/HinhSanPham/@item.strhinhsanpham"></td>
             @using (Html.BeginForm("CapNhatGioHang", "Giohang", new { @imasanpham = item.imasanpham }))
             {
                 <td>

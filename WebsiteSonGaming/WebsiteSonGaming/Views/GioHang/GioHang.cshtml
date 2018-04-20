@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.strtensanpham)
             </td>
             <td>
-                <img style="height:100px;width:100px;overflow:hidden;" src="~/Images/HinhSanPham/@item.strhinhsanpham" />
+                <img style="height:100px;width:100px;overflow:hidden;" src="~/Assets/Images/HinhSanPham/@item.strhinhsanpham" />
             </td>
             @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @imasanpham = item.imasanpham }))
             {

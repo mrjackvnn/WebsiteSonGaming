@@ -32,7 +32,9 @@ namespace WebsiteSonGaming.Models
             public Nullable<double> giaban { get; set; }
 
             [Display(Name = "Ngày Cập Nhật")]
+            [DataType(DataType.Date)]
             [Required(ErrorMessage = "{0} Không được để trống")]
+            [DisplayFormat(DataFormatString ="0:dd-MM-yyyy",ApplyFormatInEditMode =true)]
             public Nullable<System.DateTime> ngaycapnhat { get; set; }
 
             [Display(Name = "Hình Sản Phẩm")]

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteSonGaming.Models;
@@ -16,8 +17,17 @@ namespace WebsiteSonGaming.Controllers
             return View(db.SANPHAM.OrderBy(n=>n.giaban).Take(6).ToList());
         }
 
-        public ActionResult ChiTiet(int id)
+        public ActionResult ChiTiet(int? id)
         {
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SANPHAM sp = db.SANPHAM.Find(id);
+            if(sp==null)
+            {
+                return HttpNotFound();
+            }
             return View(db.SANPHAM.SingleOrDefault(n=>n.masanpham == id));
         }
 

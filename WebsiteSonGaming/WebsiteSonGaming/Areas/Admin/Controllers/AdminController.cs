@@ -9,7 +9,7 @@ using PagedList;
 using PagedList.Mvc;
 using System.Data.Entity;
 
-namespace WebsiteSonGaming.Controllers
+namespace WebsiteSonGaming.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
@@ -19,7 +19,7 @@ namespace WebsiteSonGaming.Controllers
         {
             int pageNumber = (page ?? 1);
             int pageSize = 5;
-            return View(db.SANPHAM.OrderBy(n=>n.masanpham).ToList().ToPagedList(pageNumber, pageSize));
+            return View(db.SANPHAM.OrderBy(n => n.masanpham).ToList().ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]
@@ -32,7 +32,6 @@ namespace WebsiteSonGaming.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateInput(false)]
         public ActionResult ThemMoiSanPham(SANPHAM sp, HttpPostedFileBase fileUpload)
         {
             //Dua du lieu vao dropdownload
