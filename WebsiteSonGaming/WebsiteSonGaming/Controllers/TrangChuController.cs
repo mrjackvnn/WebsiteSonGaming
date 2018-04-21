@@ -47,5 +47,9 @@ namespace WebsiteSonGaming.Controllers
         {
             return PartialView(db.NHASANXUAT.ToList());
         }
+        public ActionResult TimKiemPartial()
+        {
+            return PartialView();
+        }
     }
 }

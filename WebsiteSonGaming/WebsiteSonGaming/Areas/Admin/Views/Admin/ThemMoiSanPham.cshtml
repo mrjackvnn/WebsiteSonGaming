@@ -2,11 +2,11 @@
 
 @{
     ViewBag.Title = "ThemMoiSanPham";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 
-@using (Html.BeginForm("ThemMoiSanPham", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ThemMoiSanPham","Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -60,7 +60,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.ngaycapnhat):</label>
             <div class="col-sm-3">
-                <input type="date" name="Ngaycapnhat" class="form-control" />
+                @Html.EditorFor(model => model.ngaycapnhat)
             </div>
             <div class="col-sm-5">
                 @Html.ValidationMessageFor(model => model.ngaycapnhat)
@@ -81,7 +81,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.thongtin):</label>
             <div class="col-sm-5">
-                <textarea style="width:100%;" name="txtthongtin">Mô tả thông tin sản phẩm</textarea>
+                <textarea style="width:100%;" name="thongtin">Mô tả thông tin sản phẩm</textarea>
             </div>
         </div> 
 

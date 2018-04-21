@@ -65,5 +65,16 @@ namespace WebsiteSonGaming.Controllers
         {
             return View();
         }
+
+        public ActionResult LoginPartial()
+        {
+            return PartialView();
+        }
+
+        public ActionResult DangXuat()
+        {
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("Index", "TrangChu");
+        }
     }
 }

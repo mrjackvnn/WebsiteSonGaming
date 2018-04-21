@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4a3396a962f3450cb7fdcfa0a06dd940" Name="Diagram1">
+      <Diagram DiagramId="4a3396a962f3450cb7fdcfa0a06dd940" Name="Diagram1" ZoomLevel="45">
         <EntityTypeShape EntityType="SonGamingModel.CHITIETHOADON" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SonGamingModel.HOADON" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SonGamingModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
@@ -17,6 +17,7 @@
         <AssociationConnector Association="SonGamingModel.FK_HOADON_KHACHHANG" ManuallyRouted="false" />
         <AssociationConnector Association="SonGamingModel.FK_SANPHAM_LOAISANPHAM" ManuallyRouted="false" />
         <AssociationConnector Association="SonGamingModel.FK_SANPHAM_NHASANXUAT" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SonGamingModel.ADMIN" Width="1.5" PointX="5.875" PointY="4.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

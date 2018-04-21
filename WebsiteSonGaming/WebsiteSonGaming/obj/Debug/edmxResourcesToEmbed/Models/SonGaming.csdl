@@ -174,5 +174,13 @@
       <End Role="NHASANXUAT" EntitySet="NHASANXUAT" />
       <End Role="SANPHAM" EntitySet="SANPHAM" />
     </AssociationSet>
+    <EntitySet Name="ADMIN" EntityType="SonGamingModel.ADMIN" />
   </EntityContainer>
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

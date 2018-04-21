@@ -32,5 +32,6 @@ namespace WebsiteSonGaming.Models
         public virtual DbSet<NHASANXUAT> NHASANXUAT { get; set; }
         public virtual DbSet<SANPHAM> SANPHAM { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ADMIN> ADMIN { get; set; }
     }
 }

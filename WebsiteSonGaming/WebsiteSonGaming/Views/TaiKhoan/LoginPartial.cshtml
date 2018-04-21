@@ -1,0 +1,17 @@
+﻿
+
+@if (Session["TaiKhoan"] == null)
+{
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("DangNhap","TaiKhoan")">Đăng Nhập</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("DangKy","TaiKhoan")">Đăng Ký</a>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("DangXuat","TaiKhoan")">Đăng Xuất</a>
+    </li>
+}

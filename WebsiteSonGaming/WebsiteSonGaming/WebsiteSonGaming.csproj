@@ -158,9 +158,13 @@
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ADMIN.cs">
+      <DependentUpon>SonGaming.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHITIETHOADON.cs">
       <DependentUpon>SonGaming.tt</DependentUpon>
@@ -439,6 +443,8 @@
     <Content Include="Assets\AdminLayout\vendor\font-awesome\scss\font-awesome.scss" />
     <Content Include="Assets\AdminLayout\vendor\jquery\jquery.min.map" />
     <Content Include="Assets\AdminLayout\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\Admin\Views\Admin\ThemThanhCong.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -495,11 +501,13 @@
     <Content Include="Views\GioHang\MuaHang.cshtml" />
     <Content Include="Views\GioHang\XacNhanMuaHang.cshtml" />
     <Content Include="Views\TaiKhoan\DangNhapThanhCong.cshtml" />
+    <Content Include="Views\TaiKhoan\LoginPartial.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\TrangChu\TimKiemPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Admin1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
