@@ -445,6 +445,7 @@
     <Content Include="Assets\AdminLayout\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Admin\ThemThanhCong.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

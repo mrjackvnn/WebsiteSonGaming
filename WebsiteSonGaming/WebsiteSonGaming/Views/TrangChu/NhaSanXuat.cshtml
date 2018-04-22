@@ -35,6 +35,10 @@
                 </div>
                 <div class="card-footer">
                     <h5>@String.Format("{0:0,0}", @item.giaban) VND </h5>
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @imasanpham = item.masanpham, @strURL = Request.Url }))
+                    {
+                        <input type="submit" class="btn btn-dark" value="Mua Hàng" />
+                    }
                 </div>
             </div>
         </div>

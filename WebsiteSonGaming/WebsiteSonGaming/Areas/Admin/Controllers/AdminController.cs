@@ -15,6 +15,10 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
     {
         SonGamingEntities db = new SonGamingEntities();
         // GET: Admin
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult QuanLySanPham(int? page)
         {
             int pageNumber = (page ?? 1);
