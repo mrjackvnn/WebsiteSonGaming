@@ -202,6 +202,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SonGaming.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SonGamingCodeFirst.cs" />
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>SonGaming.tt</DependentUpon>
     </Compile>
@@ -253,6 +254,7 @@
     <Content Include="Assets\AdminLayout\vendor\jquery\jquery.min.js" />
     <Content Include="Assets\AdminLayout\vendor\jquery\jquery.slim.js" />
     <Content Include="Assets\AdminLayout\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Assets\Images\Icon\card-1.png" />
     <Content Include="Content\Assets\css\style.css" />
     <Content Include="Content\Assets\gulpfile.js" />
     <Content Include="Content\Assets\vendor\bootstrap\css\bootstrap-grid.css" />
@@ -362,7 +364,6 @@
     <Content Include="Areas\Admin\Views\Admin\ChiTietSanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\QuanLySanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\SuaSanPham.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ThemMoiSanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\XoaSanPham.cshtml" />
     <Content Include="Assets\AdminLayout\.gitignore" />
     <Content Include="Assets\AdminLayout\.jsbeautifyrc" />
@@ -446,6 +447,7 @@
     <Content Include="Areas\Admin\Views\Admin\ThemThanhCong.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ThemMoiSanPham.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

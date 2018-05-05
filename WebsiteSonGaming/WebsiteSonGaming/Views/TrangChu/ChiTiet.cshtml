@@ -11,7 +11,7 @@
         <h3 class="card-title">@Model.tensanpham</h3>
         <h4>@String.Format("{0:0,0}", Model.giaban) VND </h4>
         <p class="card-text">@Model.thongtin</p>
-        <a href="@Url.Action("ThemGioHang","GioHang")">
+        <a href="@Url.Action("ThemGioHang","GioHang",new { imasanpham = Model.masanpham, strURL = Request.Url})">
             <input type="submit" class="btn btn-dark" value="Mua Hàng" />
         </a>
     </div>

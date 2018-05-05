@@ -84,29 +84,32 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
                 ViewBag.Thongbao = "Vui lòng chọn hình sản phẩm";
                 return View();
             }
-            //Them vao CSDL
-            if (ModelState.IsValid)
+            else
             {
-                //Luu ten fie, luu y bo sung thu vien using System.IO;
-                var fileName = Path.GetFileName(fileUpload.FileName);
-                //Luu duong dan cua file
-                var path = Path.Combine(Server.MapPath("~/Assets/Images/HinhSanPham"), fileName);
-                //Kiem tra hình anh ton tai chua?
-                if (System.IO.File.Exists(path))
+                if (ModelState.IsValid)
                 {
-                    ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                    //Luu ten fie, luu y bo sung thu vien using System.IO;
+                    var fileName = Path.GetFileName(fileUpload.FileName);
+                    //Luu duong dan cua file
+                    var path = Path.Combine(Server.MapPath("~/Assets/Images/HinhSanPham"), fileName);
+                    //Kiem tra hình anh ton tai chua?
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                    }
+                    else
+                    {
+                        //Luu hinh anh vao duong dan
+                        fileUpload.SaveAs(path);
+                    }
+                    sp.hinhsanpham = fileName;
+
+                    //Luu vao CSDL
+                    db.SANPHAM.Add(sp);
+                    db.SaveChanges();
                 }
-                else
-                {
-                    //Luu hinh anh vao duong dan
-                    fileUpload.SaveAs(path);
-                }
-                sp.hinhsanpham = fileUpload.FileName;
-                //Luu vao CSDL
-                db.SANPHAM.Add(sp);
-                db.SaveChanges();
+                return RedirectToAction("ThemThanhCong");
             }
-            return RedirectToAction("ThemThanhCong");
         }
 
         public ActionResult ThemThanhCong()
@@ -158,12 +161,10 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             return RedirectToAction("QuanLySanPham");
         }
         //Chinh sửa sản phẩm
-        [HttpGet]
         public ActionResult SuaSanPham(int id)
         {
             //Lay ra doi tuong sach theo ma
-            SANPHAM sp = db.SANPHAM.SingleOrDefault(n => n.masanpham == id);
-            ViewBag.MaSanPham = sp.masanpham;
+            SANPHAM sp = db.SANPHAM.First(n => n.masanpham == id);
             if (sp == null)
             {
                 Response.StatusCode = 404;
@@ -176,9 +177,9 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             return View(sp);
         }
         [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult SuaSanPham(SANPHAM sp, HttpPostedFileBase fileUpload)
+        public ActionResult SuaSanPham(int id, FormCollection f, HttpPostedFileBase fileUpload)
         {
+            var sp = db.SANPHAM.First(n => n.masanpham == id);
             //Dua du lieu vao dropdownload
             ViewBag.MaLoai = new SelectList(db.LOAISANPHAM.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
             ViewBag.MaNsx = new SelectList(db.NHASANXUAT.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
@@ -192,24 +193,40 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             //Them vao CSDL
             if (ModelState.IsValid)
             {
-                //Luu ten fie, luu y bo sung thu vien using System.IO;
-                var fileName = Path.GetFileName(fileUpload.FileName);
-                //Luu duong dan cua file
-                var path = Path.Combine(Server.MapPath("~/Assets/Images/HinhSanPham"), fileName);
-                //Kiem tra hình anh ton tai chua?
-                if (System.IO.File.Exists(path))
-                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                else
+                try
                 {
-                    //Luu hinh anh vao duong dan
-                    fileUpload.SaveAs(path);
+                    if (fileUpload != null)
+                    {
+                        //Luu ten fie, luu y bo sung thu vien using System.IO;
+                        var fileName = Path.GetFileName(fileUpload.FileName);
+                        //Luu duong dan cua file
+                        var path = Path.Combine(Server.MapPath("~/Assets/Images/HinhSanPham"), fileName);
+                        //Kiem tra hình anh ton tai chua?
+                        if (System.IO.File.Exists(path))
+                        {
+                            ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                        }
+                        else
+                        {
+                            //Luu hinh anh vao duong dan
+                            fileUpload.SaveAs(path);
+                        }
+                        sp.hinhsanpham = fileUpload.FileName;
+                    }
                 }
-                sp.hinhsanpham = fileUpload.FileName;
-                //Luu vao CSDL   
-                UpdateModel(sp);
-                db.SaveChanges();
+                catch (Exception)
+                {
+                    ViewBag.ThongBao = "Vui lòng chọn ảnh cho sản phẩm";
+                }
             }
+
+            //Luu vao CSDL   
+            UpdateModel(sp);
+            db.SaveChanges();
+
             return RedirectToAction("QuanLySanPham");
         }
+
+
     }
 }

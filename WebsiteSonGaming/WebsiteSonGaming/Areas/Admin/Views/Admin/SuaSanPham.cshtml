@@ -6,7 +6,7 @@
 }
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("SuaSanPham", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -32,18 +32,12 @@
             <div class="col-sm-5">
                 @Html.DropDownList("MaNsx")
             </div>
-            <div class="col-sm-5">
-                @Html.ValidationMessageFor(model => model.mansx)
-            </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.maloai, "Loại Sản Phẩm"):</label>
             <div class="col-sm-5">
                 @Html.DropDownList("MaLoai")
-            </div>
-            <div class="col-sm-5">
-                @Html.ValidationMessageFor(model => model.maloai)
             </div>
         </div>
 
@@ -60,7 +54,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.ngaycapnhat):</label>
             <div class="col-sm-3">
-                <input type="date" name="Ngaycapnhat" class="form-control" />
+                <input type="date" name="ngaycapnhat" class="form-control" />
             </div>
             <div class="col-sm-5">
                 @Html.ValidationMessageFor(model => model.ngaycapnhat)
