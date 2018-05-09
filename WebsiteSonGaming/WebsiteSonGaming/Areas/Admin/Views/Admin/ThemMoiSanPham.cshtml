@@ -30,20 +30,14 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.mansx, "Nhà Sản Xuất"):</label>
             <div class="col-sm-5">
-                @Html.EditorFor(model => model.mansx)
-            </div>
-            <div class="col-sm-5">
-                @Html.ValidationMessageFor(model => model.mansx)
+                @Html.DropDownList("MaNsx")
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.maloai, "Loại Sản Phẩm"):</label>
             <div class="col-sm-5">
-                @Html.EditorFor(model => model.maloai)
-            </div>
-            <div class="col-sm-5">
-                @Html.ValidationMessageFor(model => model.maloai)
+                @Html.DropDownList("MaLoai")
             </div>
         </div>
 
@@ -80,8 +74,11 @@
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.thongtin):</label>
+            <div class="col-sm-5" >
+                @Html.EditorFor(model => model.thongtin,new { @style = "height: 100px;  width: 400px;" })
+            </div>
             <div class="col-sm-5">
-                <textarea style="width:100%;" name="thongtin">Mô tả thông tin sản phẩm</textarea>
+                @Html.ValidationMessageFor(model => model.thongtin)
             </div>
         </div> 
 

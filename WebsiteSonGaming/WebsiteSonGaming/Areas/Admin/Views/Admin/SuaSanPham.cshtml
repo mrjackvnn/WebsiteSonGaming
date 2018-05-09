@@ -1,22 +1,19 @@
 ﻿@model WebsiteSonGaming.Models.SANPHAM
-
 @{
     ViewBag.Title = "SuaSanPham";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("SuaSanPham", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <h4>Trang Sửa Sản Phẩm</h4>
+
     <hr />
-
     <div class="offset-1">
-        @Html.ValidationSummary(true)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.masanpham)
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.tensanpham):</label>
             <div class="col-sm-5">
@@ -26,27 +23,18 @@
                 @Html.ValidationMessageFor(model => model.tensanpham)
             </div>
         </div>
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.mansx, "Nhà Sản Xuất"):</label>
             <div class="col-sm-5">
                 @Html.DropDownList("MaNsx")
             </div>
-            <div class="col-sm-5">
-                @Html.ValidationMessageFor(model => model.mansx)
-            </div>
         </div>
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.maloai, "Loại Sản Phẩm"):</label>
             <div class="col-sm-5">
                 @Html.DropDownList("MaLoai")
             </div>
-            <div class="col-sm-5">
-                @Html.ValidationMessageFor(model => model.maloai)
-            </div>
         </div>
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.giaban):</label>
             <div class="col-sm-2">
@@ -56,11 +44,10 @@
                 @Html.ValidationMessageFor(model => model.giaban)
             </div>
         </div>
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.ngaycapnhat):</label>
             <div class="col-sm-3">
-                <input type="date" name="Ngaycapnhat" class="form-control" />
+                @Html.EditorFor(model => model.ngaycapnhat)
             </div>
             <div class="col-sm-5">
                 @Html.ValidationMessageFor(model => model.ngaycapnhat)
@@ -70,21 +57,19 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.hinhsanpham):</label>
             <div class="col-sm-5">
-                <input type="file" name="fileUpload" class="form-control" />
-            </div>
-            <div class="col-sm-5">
-                @*thong bao trung*@
-                @ViewBag.Thongbao
+                <img src="@Url.Content("~/Assets/Images/HinhSanPham/"+  Model.hinhsanpham)" style="width:100px;height:100px;overflow:hidden;" />
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.thongtin):</label>
             <div class="col-sm-5">
-                <textarea style="width:100%;" name="txtthongtin">@Model.thongtin </textarea>
+                @Html.EditorFor(model => model.thongtin, new { @style = "height: 100px;  width: 400px;" })
             </div>
-        </div> 
-
+            <div class="col-sm-5">
+                @Html.ValidationMessageFor(model => model.thongtin)
+            </div>
+        </div>
         <div class="form-group">
             <div class="offset-md-2 col-md-10">
                 <input type="submit" value="Lưu" class="btn btn-dark" />
