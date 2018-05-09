@@ -15,7 +15,7 @@
     <Property Name="mahoadon" Type="int" Nullable="false" />
     <Property Name="masanpham" Type="int" Nullable="false" />
     <Property Name="soluong" Type="int" />
-    <Property Name="dongia" Type="float" />
+    <Property Name="giaban" Type="int" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -58,7 +58,7 @@
     <Property Name="mansx" Type="int" />
     <Property Name="maloai" Type="int" />
     <Property Name="tensanpham" Type="nvarchar" MaxLength="250" />
-    <Property Name="giaban" Type="float" />
+    <Property Name="giaban" Type="int" />
     <Property Name="ngaycapnhat" Type="datetime" />
     <Property Name="hinhsanpham" Type="nvarchar" MaxLength="250" />
     <Property Name="thongtin" Type="ntext" />

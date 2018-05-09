@@ -10,7 +10,7 @@ namespace WebsiteSonGaming.Controllers
 {
     public class TaiKhoanController : Controller
     {
-        SonGamingEntities db = new SonGamingEntities();
+        SonGamingDataContext db = new SonGamingDataContext();
         [HttpGet]
         // GET: TaiKhoan
         public ActionResult DangKy()
@@ -23,8 +23,8 @@ namespace WebsiteSonGaming.Controllers
         {
             if(ModelState.IsValid)
             {
-                db.KHACHHANG.Add(kh);
-                db.SaveChanges();
+                db.KHACHHANGs.InsertOnSubmit(kh);
+                db.SubmitChanges();
                 return RedirectToAction("DangKyThanhCong");
             }
             return View(kh);
@@ -44,7 +44,7 @@ namespace WebsiteSonGaming.Controllers
         {
             string strTaiKhoan = f.Get("txtTenDangNhap").ToString();
             string strMatKhau = f.Get("txtMatKhau").ToString();
-            KHACHHANG kh = db.KHACHHANG.SingleOrDefault(n => n.taikhoan == strTaiKhoan && n.matkhau == strMatKhau);
+            KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.taikhoan == strTaiKhoan && n.matkhau == strMatKhau);
             if(kh != null)
             {
                 Session["TaiKhoan"] = kh;

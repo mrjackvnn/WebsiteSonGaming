@@ -13,7 +13,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        SonGamingEntities db = new SonGamingEntities();
+        SonGamingDataContext db = new SonGamingDataContext();
         // GET: Admin
         public ActionResult Index()
         {
@@ -23,7 +23,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
         {
             int pageNumber = (page ?? 1);
             int pageSize = 5;
-            return View(db.SANPHAM.OrderBy(n => n.masanpham).ToList().ToPagedList(pageNumber, pageSize));
+            return View(db.SANPHAMs.OrderBy(n => n.masanpham).ToList().ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]
@@ -49,7 +49,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             {
                 //Gán giá trị cho đối tượng được tạo mới (ad)        
 
-                ADMIN ad = db.ADMIN.SingleOrDefault(n => n.username == tendn && n.password == matkhau);
+                ADMIN ad = db.ADMINs.First(n => n.username == tendn && n.password == matkhau);
                 if (ad != null)
                 {
                     // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
@@ -57,7 +57,10 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
                     return RedirectToAction("QuanLySanPham", "Admin");
                 }
                 else
+                {
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                }
+
             }
             return View();
         }
@@ -68,21 +71,20 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
         {
             //Dua du lieu vao dropdownList
             //Lay ds tu tabke chu de, sắp xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
-            ViewBag.MaLoai = new SelectList(db.LOAISANPHAM.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
-            ViewBag.MaNsx = new SelectList(db.NHASANXUAT.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
+            ViewBag.MaLoai = new SelectList(db.LOAISANPHAMs.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
+            ViewBag.MaNsx = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
             return View();
         }
         [HttpPost]
         public ActionResult ThemMoiSanPham(SANPHAM sp, HttpPostedFileBase fileUpload)
         {
             //Dua du lieu vao dropdownload
-            ViewBag.MaLoai = new SelectList(db.LOAISANPHAM.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
-            ViewBag.MaNsx = new SelectList(db.NHASANXUAT.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
+            ViewBag.MaLoai = new SelectList(db.LOAISANPHAMs.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
+            ViewBag.MaNsx = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
             //Kiem tra duong dan file
             if (fileUpload == null)
             {
                 ViewBag.Thongbao = "Vui lòng chọn hình sản phẩm";
-                return View();
             }
             else
             {
@@ -103,13 +105,13 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
                         fileUpload.SaveAs(path);
                     }
                     sp.hinhsanpham = fileName;
-
                     //Luu vao CSDL
-                    db.SANPHAM.Add(sp);
-                    db.SaveChanges();
+                    db.SANPHAMs.InsertOnSubmit(sp);
+                    db.SubmitChanges();      
                 }
                 return RedirectToAction("ThemThanhCong");
             }
+            return View();
         }
 
         public ActionResult ThemThanhCong()
@@ -121,7 +123,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
         public ActionResult ChiTietSanPham(int id)
         {
             //Lay ra doi tuong sach theo ma
-            SANPHAM sp = db.SANPHAM.SingleOrDefault(n => n.masanpham == id);
+            SANPHAM sp = db.SANPHAMs.SingleOrDefault(n => n.masanpham == id);
             ViewBag.MaSanPham = sp.masanpham;
             if (sp == null)
             {
@@ -135,7 +137,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
         public ActionResult XoaSanPham(int id)
         {
             //Lay ra doi tuong sach can xoa theo ma
-            SANPHAM sp = db.SANPHAM.SingleOrDefault(n => n.masanpham == id);
+            SANPHAM sp = db.SANPHAMs.SingleOrDefault(n => n.masanpham == id);
             ViewBag.MaSanPham = sp.masanpham;
             if (sp == null)
             {
@@ -149,22 +151,24 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
         public ActionResult XacNhanXoa(int id)
         {
             //Lay ra doi tuong sach can xoa theo ma
-            SANPHAM sp = db.SANPHAM.SingleOrDefault(n => n.masanpham == id);
+            SANPHAM sp = db.SANPHAMs.SingleOrDefault(n => n.masanpham == id);
             ViewBag.MaSanPham = sp.masanpham;
             if (sp == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            db.SANPHAM.Remove(sp);
-            db.SaveChanges();
+            db.SANPHAMs.DeleteOnSubmit(sp);
+            db.SubmitChanges();
             return RedirectToAction("QuanLySanPham");
         }
         //Chinh sửa sản phẩm
+        [HttpGet]
         public ActionResult SuaSanPham(int id)
         {
             //Lay ra doi tuong sach theo ma
-            SANPHAM sp = db.SANPHAM.First(n => n.masanpham == id);
+            SANPHAM sp = db.SANPHAMs.SingleOrDefault(n => n.masanpham == id);
+            ViewBag.MaSanPham = sp.masanpham;
             if (sp == null)
             {
                 Response.StatusCode = 404;
@@ -172,17 +176,17 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             }
             //Dua du lieu vao dropdownList
             //Lay ds tu tabke chu de, sắp xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
-            ViewBag.MaLoai = new SelectList(db.LOAISANPHAM.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
-            ViewBag.MaNsx = new SelectList(db.NHASANXUAT.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
+            ViewBag.MaLoai = new SelectList(db.LOAISANPHAMs.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
+            ViewBag.MaNsx = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
             return View(sp);
         }
         [HttpPost]
-        public ActionResult SuaSanPham(int id, FormCollection f, HttpPostedFileBase fileUpload)
+        [ValidateInput(false)]
+        public ActionResult SuaSanPham(SANPHAM sp, HttpPostedFileBase fileUpload)
         {
-            var sp = db.SANPHAM.First(n => n.masanpham == id);
             //Dua du lieu vao dropdownload
-            ViewBag.MaLoai = new SelectList(db.LOAISANPHAM.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
-            ViewBag.MaNsx = new SelectList(db.NHASANXUAT.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
+            ViewBag.MaLoai = new SelectList(db.LOAISANPHAMs.ToList().OrderBy(n => n.tenloai), "maloai", "tenloai");
+            ViewBag.MaNsx = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.tennsx), "mansx", "tennsx");
             //Kiem tra duong dan file
             if (fileUpload == null)
             {
@@ -193,40 +197,24 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             //Them vao CSDL
             if (ModelState.IsValid)
             {
-                try
+                //Luu ten fie, luu y bo sung thu vien using System.IO;
+                var fileName = Path.GetFileName(fileUpload.FileName);
+                //Luu duong dan cua file
+                var path = Path.Combine(Server.MapPath("~/Assets/Images/HinhSanPham"), fileName);
+                //Kiem tra hình anh ton tai chua?
+                if (System.IO.File.Exists(path))
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                else
                 {
-                    if (fileUpload != null)
-                    {
-                        //Luu ten fie, luu y bo sung thu vien using System.IO;
-                        var fileName = Path.GetFileName(fileUpload.FileName);
-                        //Luu duong dan cua file
-                        var path = Path.Combine(Server.MapPath("~/Assets/Images/HinhSanPham"), fileName);
-                        //Kiem tra hình anh ton tai chua?
-                        if (System.IO.File.Exists(path))
-                        {
-                            ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                        }
-                        else
-                        {
-                            //Luu hinh anh vao duong dan
-                            fileUpload.SaveAs(path);
-                        }
-                        sp.hinhsanpham = fileUpload.FileName;
-                    }
+                    //Luu hinh anh vao duong dan
+                    fileUpload.SaveAs(path);
                 }
-                catch (Exception)
-                {
-                    ViewBag.ThongBao = "Vui lòng chọn ảnh cho sản phẩm";
-                }
+                sp.hinhsanpham = fileUpload.FileName;
+                //Luu vao CSDL   
+                UpdateModel(sp);
+                db.SubmitChanges();
             }
-
-            //Luu vao CSDL   
-            UpdateModel(sp);
-            db.SaveChanges();
-
             return RedirectToAction("QuanLySanPham");
         }
-
-
     }
 }

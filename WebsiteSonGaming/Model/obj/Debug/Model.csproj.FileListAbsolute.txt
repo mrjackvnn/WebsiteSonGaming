@@ -1,2 +1,0 @@
-C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache

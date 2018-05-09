@@ -6,78 +6,93 @@
 }
 
 
-
-@using (Html.BeginForm("ThemMoiSanPham","Admin",FormMethod.Post,new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ThemMoiSanPham","Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Thêm mới sản phẩm</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.mansx, "Nhà Sản Xuất", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("MaNsx")
+
+    <h4>Thêm Sản Phẩm Mới</h4>
+    <hr />
+
+    <div class="offset-1">
+        @Html.ValidationSummary(true,"", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.masanpham)
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.tensanpham):</label>
+            <div class="col-sm-5">
+                @Html.EditorFor(model => model.tensanpham)
+            </div>
+            <div class="col-sm-5">
+                @Html.ValidationMessageFor(model => model.tensanpham)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.maloai, "Loại Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("MaLoai")
-
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.mansx, "Nhà Sản Xuất"):</label>
+            <div class="col-sm-5">
+                @Html.EditorFor(model => model.mansx)
+            </div>
+            <div class="col-sm-5">
+                @Html.ValidationMessageFor(model => model.mansx)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.tensanpham, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(Model => Model.tensanpham, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.tensanpham, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.maloai, "Loại Sản Phẩm"):</label>
+            <div class="col-sm-5">
+                @Html.EditorFor(model => model.maloai)
+            </div>
+            <div class="col-sm-5">
+                @Html.ValidationMessageFor(model => model.maloai)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(Model => Model.giaban, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(Model => Model.giaban, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.giaban, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.giaban):</label>
+            <div class="col-sm-2">
+                @Html.EditorFor(model => model.giaban)
+            </div>
+            <div class="col-sm-5">
+                @Html.ValidationMessageFor(model => model.giaban)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(Model => Model.ngaycapnhat, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="date" placeholder="now" name="NgayCapNhat" />
-                @Html.ValidationMessageFor(Model => Model.ngaycapnhat, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.ngaycapnhat):</label>
+            <div class="col-sm-3">
+                @Html.EditorFor(model => model.ngaycapnhat)
+            </div>
+            <div class="col-sm-5">
+                @Html.ValidationMessageFor(model => model.ngaycapnhat)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(Model => Model.hinhsanpham, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="fileUpload" />
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.hinhsanpham):</label>
+            <div class="col-sm-5">
+                <input type="file" name="fileUpload" class="form-control" />
+            </div>
+            <div class="col-sm-5">
+                @*thong bao trung*@
                 @ViewBag.Thongbao
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(Model => Model.thongtin, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(Model => Model.thongtin, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.thongtin, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">@Html.LabelFor(model => model.thongtin):</label>
+            <div class="col-sm-5">
+                <textarea style="width:100%;" name="thongtin">Mô tả thông tin sản phẩm</textarea>
             </div>
-        </div>
+        </div> 
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-dark" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<a class="offset-1" href="@Url.Action("QuanLySanPham","Admin")">
+    <input type="submit" class="btn btn-dark" value="Thoát" />
+</a>

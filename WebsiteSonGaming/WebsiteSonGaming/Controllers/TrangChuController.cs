@@ -10,11 +10,11 @@ namespace WebsiteSonGaming.Controllers
 {
     public class TrangChuController : Controller
     {
-        SonGamingEntities db = new SonGamingEntities();
+        SonGamingDataContext db = new SonGamingDataContext();
         // GET: TrangChu
         public ActionResult Index()
         {
-            return View(db.SANPHAM.OrderBy(n=>n.giaban).Take(6).ToList());
+            return View(db.SANPHAMs.OrderBy(n=>n.giaban).Take(6).ToList());
         }
 
         public ActionResult ChiTiet(int? id)
@@ -23,29 +23,24 @@ namespace WebsiteSonGaming.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sp = db.SANPHAM.Find(id);
-            if(sp==null)
-            {
-                return HttpNotFound();
-            }
-            return View(db.SANPHAM.SingleOrDefault(n=>n.masanpham == id));
+            return View(db.SANPHAMs.SingleOrDefault(n=>n.masanpham == id));
         }
 
         public ActionResult LoaiSanPham(int id)
         {
-            return View(db.SANPHAM.Where(n=>n.maloai == id).ToList());
+            return View(db.SANPHAMs.Where(n=>n.maloai == id).ToList());
         }
         public ActionResult LoaiSanPhamPartial()
         {
-            return PartialView(db.LOAISANPHAM.ToList());
+            return PartialView(db.LOAISANPHAMs.ToList());
         }
         public ActionResult NhaSanXuat(int id)
         {
-            return View(db.SANPHAM.Where(n=>n.mansx==id).ToList());
+            return View(db.SANPHAMs.Where(n=>n.mansx==id).ToList());
         }
         public ActionResult NhaSanXuatPartial()
         {
-            return PartialView(db.NHASANXUAT.ToList());
+            return PartialView(db.NHASANXUATs.ToList());
         }
         public ActionResult TimKiemPartial()
         {

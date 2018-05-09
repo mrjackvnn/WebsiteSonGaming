@@ -9,13 +9,13 @@ namespace WebsiteSonGaming.Controllers
 {
     public class TimKiemController : Controller
     {
-        SonGamingEntities db = new SonGamingEntities();
+        SonGamingDataContext db = new SonGamingDataContext();
         // GET: TimKiem
         [HttpGet]
         public ActionResult KetQuaTimKiem(FormCollection f)
         {
             string strTuKhoa = f.Get("txtTuKhoa").ToString();
-            List<SANPHAM> lstKQTK = db.SANPHAM.Where(n => n.tensanpham.Contains(strTuKhoa)).ToList();
+            List<SANPHAM> lstKQTK = db.SANPHAMs.Where(n => n.tensanpham.Contains(strTuKhoa)).ToList();
             if (lstKQTK.Count == 0)
             {
                 ViewBag.ThongBao = "Không tìm thấy kết quả nào";
@@ -26,7 +26,7 @@ namespace WebsiteSonGaming.Controllers
         [HttpPost]
         public ActionResult KetQuaTimKiem(string strTuKhoa)
         {
-            List<SANPHAM> lstKQTK = db.SANPHAM.Where(n => n.tensanpham.Contains(strTuKhoa)).ToList();
+            List<SANPHAM> lstKQTK = db.SANPHAMs.Where(n => n.tensanpham.Contains(strTuKhoa)).ToList();
             if (lstKQTK.Count == 0)
             {
                 ViewBag.ThongBao = "Không tìm thấy kết quả nào";

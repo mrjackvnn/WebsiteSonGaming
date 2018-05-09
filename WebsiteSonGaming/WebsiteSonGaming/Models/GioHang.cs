@@ -9,7 +9,7 @@ namespace WebsiteSonGaming.Models
 {
     public class GioHang
     {
-        SonGamingEntities db = new SonGamingEntities();
+        SonGamingDataContext db = new SonGamingDataContext();
 
         [Display(Name = "Mã Sản Phẩm")]
         public int imasanpham { set; get; }
@@ -36,7 +36,7 @@ namespace WebsiteSonGaming.Models
         public GioHang(int masanpham)
         {
             imasanpham = masanpham;
-            SANPHAM sp = db.SANPHAM.Single(n => n.masanpham == imasanpham);
+            SANPHAM sp = db.SANPHAMs.Single(n => n.masanpham == imasanpham);
             strtensanpham = sp.tensanpham;
             strhinhsanpham = sp.hinhsanpham;
             dgiaban = double.Parse(sp.giaban.ToString());

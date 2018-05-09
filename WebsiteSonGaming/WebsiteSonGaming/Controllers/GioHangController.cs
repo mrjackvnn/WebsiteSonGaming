@@ -9,7 +9,7 @@ namespace WebsiteSonGaming.Controllers
 {
     public class GioHangController : Controller
     {
-        SonGamingEntities db = new SonGamingEntities();
+        SonGamingDataContext db = new SonGamingDataContext();
         public List<GioHang> Laygiohang()
         {
             List<GioHang> lstGiohang = Session["GioHang"] as List<GioHang>;
@@ -162,8 +162,8 @@ namespace WebsiteSonGaming.Controllers
             List<GioHang> gh = Laygiohang();
             hd.makh = kh.makh;
             hd.ngaydat = DateTime.Now;
-            db.HOADON.Add(hd);
-            db.SaveChanges();
+            db.HOADONs.InsertOnSubmit(hd);
+            db.SubmitChanges();
             //Them chi tiet don hang            
             foreach (var item in gh)
             {
@@ -172,9 +172,9 @@ namespace WebsiteSonGaming.Controllers
                 cthd.masanpham = item.imasanpham;
                 cthd.soluong = item.isoluong;
                 cthd.dongia = item.dgiaban;
-                db.CHITIETHOADON.Add(cthd);
+                db.CHITIETHOADONs.InsertOnSubmit(cthd);
             }
-            db.SaveChanges();
+            db.SubmitChanges();
             Session["GioHang"] = null;
             return RedirectToAction("XacNhanMuaHang", "GioHang");
         }

@@ -4,10 +4,10 @@
     <EntitySetMapping Name="CHITIETHOADON">
       <EntityTypeMapping TypeName="SonGamingModel.CHITIETHOADON">
         <MappingFragment StoreEntitySet="CHITIETHOADON">
+          <ScalarProperty Name="giaban" ColumnName="giaban" />
           <ScalarProperty Name="mahoadon" ColumnName="mahoadon" />
           <ScalarProperty Name="masanpham" ColumnName="masanpham" />
           <ScalarProperty Name="soluong" ColumnName="soluong" />
-          <ScalarProperty Name="dongia" ColumnName="dongia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -48,20 +48,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SANPHAM">
-      <EntityTypeMapping TypeName="SonGamingModel.SANPHAM">
-        <MappingFragment StoreEntitySet="SANPHAM">
-          <ScalarProperty Name="masanpham" ColumnName="masanpham" />
-          <ScalarProperty Name="mansx" ColumnName="mansx" />
-          <ScalarProperty Name="maloai" ColumnName="maloai" />
-          <ScalarProperty Name="tensanpham" ColumnName="tensanpham" />
-          <ScalarProperty Name="giaban" ColumnName="giaban" />
-          <ScalarProperty Name="ngaycapnhat" ColumnName="ngaycapnhat" />
-          <ScalarProperty Name="hinhsanpham" ColumnName="hinhsanpham" />
-          <ScalarProperty Name="thongtin" ColumnName="thongtin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="SonGamingModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -78,6 +64,20 @@
         <MappingFragment StoreEntitySet="ADMIN">
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SANPHAM">
+      <EntityTypeMapping TypeName="SonGamingModel.SANPHAM">
+        <MappingFragment StoreEntitySet="SANPHAM">
+          <ScalarProperty Name="thongtin" ColumnName="thongtin" />
+          <ScalarProperty Name="hinhsanpham" ColumnName="hinhsanpham" />
+          <ScalarProperty Name="ngaycapnhat" ColumnName="ngaycapnhat" />
+          <ScalarProperty Name="giaban" ColumnName="giaban" />
+          <ScalarProperty Name="tensanpham" ColumnName="tensanpham" />
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+          <ScalarProperty Name="mansx" ColumnName="mansx" />
+          <ScalarProperty Name="masanpham" ColumnName="masanpham" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

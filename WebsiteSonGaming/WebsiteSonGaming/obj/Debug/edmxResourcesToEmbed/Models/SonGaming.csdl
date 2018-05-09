@@ -10,7 +10,8 @@
     <Property Name="soluong" Type="Int32" />
     <Property Name="dongia" Type="Double" />
     <NavigationProperty Name="HOADON" Relationship="Self.FK_CHITIETHOADON_HOADON" FromRole="CHITIETHOADON" ToRole="HOADON" />
-    <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CHITIETHOADON_SANPHAM" FromRole="CHITIETHOADON" ToRole="SANPHAM" />
+    <Property Name="giaban" Type="Int32" />
+    <NavigationProperty Name="SANPHAM" Relationship="SonGamingModel.FK_CHITIETHOADON_SANPHAM" FromRole="CHITIETHOADON" ToRole="SANPHAM" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -40,7 +41,7 @@
     </Key>
     <Property Name="maloai" Type="Int32" Nullable="false" />
     <Property Name="tenloai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="SANPHAM" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
+    <NavigationProperty Name="SANPHAM" Relationship="SonGamingModel.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
   </EntityType>
   <EntityType Name="NHASANXUAT">
     <Key>
@@ -48,23 +49,7 @@
     </Key>
     <Property Name="mansx" Type="Int32" Nullable="false" />
     <Property Name="tennsx" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="SANPHAM" Relationship="Self.FK_SANPHAM_NHASANXUAT" FromRole="NHASANXUAT" ToRole="SANPHAM" />
-  </EntityType>
-  <EntityType Name="SANPHAM">
-    <Key>
-      <PropertyRef Name="masanpham" />
-    </Key>
-    <Property Name="masanpham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="mansx" Type="Int32" />
-    <Property Name="maloai" Type="Int32" />
-    <Property Name="tensanpham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="giaban" Type="Double" />
-    <Property Name="ngaycapnhat" Type="DateTime" Precision="3" />
-    <Property Name="hinhsanpham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="thongtin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK_CHITIETHOADON_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHOADON" />
-    <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
-    <NavigationProperty Name="NHASANXUAT" Relationship="Self.FK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
+    <NavigationProperty Name="SANPHAM" Relationship="SonGamingModel.FK_SANPHAM_NHASANXUAT" FromRole="NHASANXUAT" ToRole="SANPHAM" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -90,20 +75,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CHITIETHOADON_SANPHAM">
-    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SANPHAM">
-        <PropertyRef Name="masanpham" />
-      </Principal>
-      <Dependent Role="CHITIETHOADON">
-        <PropertyRef Name="masanpham" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_HOADON_KHACHHANG">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -118,11 +89,78 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_SANPHAM_LOAISANPHAM">
-    <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1">
+  <EntityContainer Name="SonGamingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" />
+    <EntitySet Name="NHASANXUAT" EntityType="Self.NHASANXUAT" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_CHITIETHOADON_HOADON" Association="Self.FK_CHITIETHOADON_HOADON">
+      <End Role="HOADON" EntitySet="HOADON" />
+      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOADON_KHACHHANG" Association="Self.FK_HOADON_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <EntitySet Name="ADMIN" EntityType="SonGamingModel.ADMIN" />
+    <EntitySet Name="SANPHAM" EntityType="SonGamingModel.SANPHAM" />
+    <AssociationSet Name="FK_CHITIETHOADON_SANPHAM" Association="SonGamingModel.FK_CHITIETHOADON_SANPHAM">
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SANPHAM_LOAISANPHAM" Association="SonGamingModel.FK_SANPHAM_LOAISANPHAM">
+      <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SANPHAM_NHASANXUAT" Association="SonGamingModel.FK_SANPHAM_NHASANXUAT">
+      <End Role="NHASANXUAT" EntitySet="NHASANXUAT" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="masanpham" />
+    </Key>
+    <Property Name="masanpham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mansx" Type="Int32" />
+    <Property Name="maloai" Type="Int32" />
+    <Property Name="tensanpham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="giaban" Type="Int32" />
+    <Property Name="ngaycapnhat" Type="DateTime" Precision="3" />
+    <Property Name="hinhsanpham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="thongtin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETHOADON" Relationship="SonGamingModel.FK_CHITIETHOADON_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHOADON" />
+    <NavigationProperty Name="LOAISANPHAM" Relationship="SonGamingModel.FK_SANPHAM_LOAISANPHAM" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
+    <NavigationProperty Name="NHASANXUAT" Relationship="SonGamingModel.FK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
+  </EntityType>
+  <Association Name="FK_CHITIETHOADON_SANPHAM">
+    <End Type="SonGamingModel.SANPHAM" Role="SANPHAM" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <End Type="SonGamingModel.CHITIETHOADON" Role="CHITIETHOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="masanpham" />
+      </Principal>
+      <Dependent Role="CHITIETHOADON">
+        <PropertyRef Name="masanpham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SANPHAM_LOAISANPHAM">
+    <End Type="SonGamingModel.LOAISANPHAM" Role="LOAISANPHAM" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SonGamingModel.SANPHAM" Role="SANPHAM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LOAISANPHAM">
         <PropertyRef Name="maloai" />
@@ -133,10 +171,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SANPHAM_NHASANXUAT">
-    <End Role="NHASANXUAT" Type="Self.NHASANXUAT" Multiplicity="0..1">
+    <End Type="SonGamingModel.NHASANXUAT" Role="NHASANXUAT" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <End Type="SonGamingModel.SANPHAM" Role="SANPHAM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NHASANXUAT">
         <PropertyRef Name="mansx" />
@@ -146,41 +184,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SonGamingEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" />
-    <EntitySet Name="HOADON" EntityType="Self.HOADON" />
-    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
-    <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" />
-    <EntitySet Name="NHASANXUAT" EntityType="Self.NHASANXUAT" />
-    <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <AssociationSet Name="FK_CHITIETHOADON_HOADON" Association="Self.FK_CHITIETHOADON_HOADON">
-      <End Role="HOADON" EntitySet="HOADON" />
-      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CHITIETHOADON_SANPHAM" Association="Self.FK_CHITIETHOADON_SANPHAM">
-      <End Role="SANPHAM" EntitySet="SANPHAM" />
-      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HOADON_KHACHHANG" Association="Self.FK_HOADON_KHACHHANG">
-      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
-      <End Role="HOADON" EntitySet="HOADON" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SANPHAM_LOAISANPHAM" Association="Self.FK_SANPHAM_LOAISANPHAM">
-      <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
-      <End Role="SANPHAM" EntitySet="SANPHAM" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SANPHAM_NHASANXUAT" Association="Self.FK_SANPHAM_NHASANXUAT">
-      <End Role="NHASANXUAT" EntitySet="NHASANXUAT" />
-      <End Role="SANPHAM" EntitySet="SANPHAM" />
-    </AssociationSet>
-    <EntitySet Name="ADMIN" EntityType="SonGamingModel.ADMIN" />
-  </EntityContainer>
-  <EntityType Name="ADMIN">
-    <Key>
-      <PropertyRef Name="username" />
-    </Key>
-    <Property Name="username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>
