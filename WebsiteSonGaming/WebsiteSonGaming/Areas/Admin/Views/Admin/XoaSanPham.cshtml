@@ -1,0 +1,97 @@
+﻿@model WebsiteSonGaming.Models.SANPHAM
+
+@{
+    ViewBag.Title = "XoaSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div>
+    <h4>Bạn có chắc muốn xóa sản phẩm này không?</h4>
+    <hr />
+    <dl class="row offset-1">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.tensanpham):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.tensanpham)
+        </dd>
+    </dl>
+
+    <dl class="row offset-1">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.giaban):
+        </dt>
+
+        <dd class="col-10">
+            @String.Format("{0:0,0}", Model.giaban) VNĐ
+        </dd>
+    </dl>
+
+    <dl class="row offset-1">
+        <dt class="col-2">
+            Loại Sản Phẩm:
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.LOAISANPHAM.tenloai)
+        </dd>
+    </dl>
+
+    <dl class="row offset-1">
+        <dt class="col-2">
+            Nhà Sản Xuất:
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.NHASANXUAT.tennsx)
+        </dd>
+    </dl>
+
+    <dl class="row offset-1">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.ngaycapnhat):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayTextFor(model => model.ngaycapnhat)
+        </dd>
+    </dl>
+
+    <dl class="row offset-1">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.hinhsanpham):
+        </dt>
+
+        <dd class="col-10">
+            <img src="@Url.Content("~/Assets/Images/HinhSanPham/"+  Model.hinhsanpham)" style="width:100px;height:100px;overflow:hidden;" />
+        </dd>
+    </dl>
+
+    <dl class="row offset-1">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.thongtin):
+        </dt>
+
+        <dd class="col-10">
+            @String.Format("{0:dd/MM/yyyy}", Model.thongtin)
+        </dd>
+    </dl>
+
+</div>
+
+<div class="row offset-1">
+    <div class="col-1">
+        <a href="@Url.Action("QuanLySanPham","Admin")">
+            <input type="submit" class="btn btn-dark" value="Thoát" />
+        </a>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="col-1">
+            <input type="submit" value="Xóa" class="btn btn-dark" />
+        </div>
+    }
+</div>
+

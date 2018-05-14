@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="SonGaming">
+  <DataContextMoniker Name="/SonGamingDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0c6f5243-08a5-4bca-be26-eadf081278c4" absoluteBounds="6.75, 5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/SonGamingDataContext/ADMIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d5cd1c8-2bfe-4ef2-96d2-188e3dfad7ae" absoluteBounds="6.765, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b651c56b-a264-4fd0-995a-e09c70949893" absoluteBounds="3.5, 2.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/SonGamingDataContext/SANPHAM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b858c77-1bf7-4d25-bc0b-ac95004ec77b" absoluteBounds="3.515, 2.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="147d6aaf-dc19-438b-8761-8d02bf9b13f7" absoluteBounds="6.25, 2.5, 2, 1.578595377604167">
+      <DataClassMoniker Name="/SonGamingDataContext/CHITIETHOADON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b7cd54a-1394-4dbe-9a1f-22a4e18db54b" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10aa5715-54dd-49fa-8cb0-925367f6c2f3" absoluteBounds="3.5, 6.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/SonGamingDataContext/HOADON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0432fc5-b922-42e5-a1fa-375cefd10b3a" absoluteBounds="3.515, 7.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4cee957b-7bd7-4cb6-a516-b021f9a25b55" absoluteBounds="0.75, 6.375, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/SonGamingDataContext/KHACHHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f37f2b37-28c4-4a53-aa72-9c644b778d0b" absoluteBounds="0.765, 6.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11c26659-004d-404d-a9e1-0bc9deb1eaff" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/SonGamingDataContext/LOAISANPHAM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66fc5f5e-bb12-4d1c-aa6c-b82046e903b6" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22c3975e-ab76-4a4d-8ab6-92da18c71d82" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/SonGamingDataContext/NHASANXUAT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7f3f5a8-76a7-4fa9-9051-dad5bf17af4d" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 3.28929768880208); (6.25 : 3.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/SANPHAM/SANPHAM_CHITIETHOADON" />
+      <nodes>
+        <classShapeMoniker Id="b651c56b-a264-4fd0-995a-e09c70949893" />
+        <classShapeMoniker Id="147d6aaf-dc19-438b-8761-8d02bf9b13f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.31814697265625); (6.46875 : 7.31814697265625); (6.46875 : 4.07859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/HOADON/HOADON_CHITIETHOADON" />
+      <nodes>
+        <classShapeMoniker Id="10aa5715-54dd-49fa-8cb0-925367f6c2f3" />
+        <classShapeMoniker Id="147d6aaf-dc19-438b-8761-8d02bf9b13f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.31814697265625); (3.5 : 7.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/KHACHHANG/KHACHHANG_HOADON" />
+      <nodes>
+        <classShapeMoniker Id="4cee957b-7bd7-4cb6-a516-b021f9a25b55" />
+        <classShapeMoniker Id="10aa5715-54dd-49fa-8cb0-925367f6c2f3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/LOAISANPHAM/LOAISANPHAM_SANPHAM" />
+      <nodes>
+        <classShapeMoniker Id="11c26659-004d-404d-a9e1-0bc9deb1eaff" />
+        <classShapeMoniker Id="b651c56b-a264-4fd0-995a-e09c70949893" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/NHASANXUAT/NHASANXUAT_SANPHAM" />
+      <nodes>
+        <classShapeMoniker Id="22c3975e-ab76-4a4d-8ab6-92da18c71d82" />
+        <classShapeMoniker Id="b651c56b-a264-4fd0-995a-e09c70949893" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

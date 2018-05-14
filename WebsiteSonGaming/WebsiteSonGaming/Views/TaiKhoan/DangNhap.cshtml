@@ -1,0 +1,32 @@
+﻿@model WebsiteSonGaming.Models.KHACHHANG
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    <form>
+        <h4>Trang Đăng Nhập</h4>
+        <hr />
+        <div class="form-group row">
+            @Html.LabelFor(model => model.taikhoan, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBox("txtTenDangNhap","",new { @class= "form-control" })
+                @ViewBag.LoiDangNhap
+            </div>    
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.matkhau, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBox("txtMatKhau","",new { @class = "form-control" })
+                @ViewBag.LoiMatKhau
+            </div>
+        </div>
+        <div class="form-group row">
+            <input type="submit" value="Đăng Nhập" class="btn btn-dark" />
+        </div>
+    </form>
+}
+    <h2>@ViewBag.ThongBao</h2>
