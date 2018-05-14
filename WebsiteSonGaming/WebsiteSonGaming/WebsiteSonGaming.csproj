@@ -402,6 +402,11 @@
       <LastGenOutput>SonGaming.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Areas\Admin\Views\Admin\KhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ChiTietKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\XoaKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\XoaThanhCong.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\DonHang.cshtml" />
     <None Include="Models\SonGaming.dbml.layout">
       <DependentUpon>SonGaming.dbml</DependentUpon>
     </None>

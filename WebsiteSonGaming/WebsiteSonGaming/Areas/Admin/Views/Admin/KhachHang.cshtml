@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebsiteSonGaming.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>DANH SÁCH KHÁCH HÀNG</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tenkhachhang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taikhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matkhau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sodienthoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diachi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenkhachhang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taikhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.matkhau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sodienthoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diachi)
+        </td>
+        <td>
+            @Html.ActionLink("Chi Tiết", "ChiTietKhachHang", new { id=item.makh })
+        </td>
+        <td>
+            @Html.ActionLink("Xóa", "XoaKhachHang", new { id = item.makh })
+        </td>
+    </tr>
+}
+
+</table>

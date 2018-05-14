@@ -1,0 +1,59 @@
+﻿@model WebsiteSonGaming.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "ChiTietKhachHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Khách Hàng</h2>
+
+<div>
+    <dl class="row offset-1">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.tenkhachhang):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.tenkhachhang)
+        </dd>
+
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.taikhoan):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.taikhoan)
+        </dd>
+
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.matkhau):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.matkhau)
+        </dd>
+
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.sodienthoai):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.sodienthoai)
+        </dd>
+
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.diachi):
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+    </dl>
+</div>
+
+<a href="@Url.Action("KhachHang","Admin")">
+    <input type="submit" class="btn btn-dark" value="Thoát" />
+</a>
+
+

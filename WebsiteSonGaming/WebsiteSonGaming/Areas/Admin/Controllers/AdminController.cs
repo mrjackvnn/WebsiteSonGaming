@@ -15,10 +15,14 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
     {
         SonGamingDataContext db = new SonGamingDataContext();
         // GET: Admin
-        public ActionResult Index()
+        #region Trang Chu Admin
+       public ActionResult Index()
         {
             return View();
         }
+        #endregion
+
+        #region Quan Ly San Pham
         public ActionResult QuanLySanPham(int? page)
         {
             int pageNumber = (page ?? 1);
@@ -26,43 +30,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             return View(db.SANPHAMs.OrderBy(n => n.masanpham).ToList().ToPagedList(pageNumber, pageSize));
         }
 
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(FormCollection collection)
-        {
-            // Gán các giá trị người dùng nhập liệu cho các biến 
-            var tendn = collection["username"];
-            var matkhau = collection["password"];
-            if (String.IsNullOrEmpty(tendn))
-            {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
-            }
-            else if (String.IsNullOrEmpty(matkhau))
-            {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
-            }
-            else
-            {
-                //Gán giá trị cho đối tượng được tạo mới (ad)        
-
-                ADMIN ad = db.ADMINs.SingleOrDefault(n => n.username == tendn && n.password == matkhau);
-                if (ad != null)
-                {
-                    // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
-                    Session["Taikhoanadmin"] = ad;
-                    return RedirectToAction("QuanLySanPham", "Admin");
-                }
-                else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
-            }
-            return View();
-        }
-
-
+        #region Them Moi San Pham
         [HttpGet]
         public ActionResult ThemMoiSanPham()
         {
@@ -108,13 +76,13 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             }
             return View();
         }
-
         public ActionResult ThemThanhCong()
         {
             return View();
         }
+        #endregion
 
-        //Hiển thị sản phẩm
+        #region Chi Tiet San Pham
         public ActionResult ChiTietSanPham(int id)
         {
             //Lay ra doi tuong sach theo ma
@@ -127,7 +95,9 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             }
             return View(sp);
         }
+        #endregion
 
+        #region Xoa San Pham
         [HttpGet]
         public ActionResult XoaSanPham(int id)
         {
@@ -155,9 +125,11 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             }
             db.SANPHAMs.DeleteOnSubmit(sp);
             db.SubmitChanges();
-            return RedirectToAction("QuanLySanPham");
+            return RedirectToAction("XoaThanhCong");
         }
-        //Chinh sửa sản phẩm
+        #endregion
+
+        #region Sua San Pham
         [HttpGet]
         public ActionResult SuaSanPham(int id)
         {
@@ -187,5 +159,85 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             db.SubmitChanges();
             return RedirectToAction("QuanLySanPham");
         }
+        #endregion
+        #endregion
+
+        #region Login
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(FormCollection collection)
+        {
+            // Gán các giá trị người dùng nhập liệu cho các biến 
+            var tendn = collection["username"];
+            var matkhau = collection["password"];
+            if (String.IsNullOrEmpty(tendn))
+            {
+                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+            }
+            else if (String.IsNullOrEmpty(matkhau))
+            {
+                ViewData["Loi2"] = "Phải nhập mật khẩu";
+            }
+            else
+            {
+                //Gán giá trị cho đối tượng được tạo mới (ad)        
+
+                ADMIN ad = db.ADMINs.SingleOrDefault(n => n.username == tendn && n.password == matkhau);
+                if (ad != null)
+                {
+                    // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
+                    Session["Taikhoanadmin"] = ad;
+                    return RedirectToAction("QuanLySanPham", "Admin");
+                }
+                else
+                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+            }
+            return View();
+        }
+        #endregion
+
+        #region Khach Hang
+
+        public ActionResult KhachHang()
+        {
+            return View(db.KHACHHANGs.ToList());
+        }
+
+        public ActionResult ChiTietKhachHang(int id)
+        {
+            var kh = db.KHACHHANGs.First(n => n.makh == id);
+            return View(kh);
+        }
+
+        [HttpGet]
+        public ActionResult XoaKhachHang(int id)
+        {
+            var kh = db.KHACHHANGs.First(n => n.makh == id);
+            return View(kh);
+        }
+        [HttpPost,ActionName("XoaKhachHang")]
+        public ActionResult XacNhanXoaKhachHang(int id)
+        {
+            var kh = db.KHACHHANGs.First(n => n.makh == id);
+            db.KHACHHANGs.DeleteOnSubmit(kh);
+            db.SubmitChanges();
+            return RedirectToAction("XoaThanhCong");
+        }
+        public ActionResult XoaThanhCong()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Quản Lý Đơn Hàng
+        public ActionResult DonHang()
+        {
+            return View(db.HOADONs.ToList());
+        }
+        #endregion
     }
 }

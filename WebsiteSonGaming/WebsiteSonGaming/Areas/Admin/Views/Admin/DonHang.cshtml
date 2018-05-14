@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebsiteSonGaming.Models.HOADON>
+
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ĐƠN HÀNG CỦA KHÁCH</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.makh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngaydat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.makh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngaydat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.mahoadon }) |
+            @Html.ActionLink("Details", "Details", new { id=item.mahoadon }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.mahoadon })
+        </td>
+    </tr>
+}
+
+</table>
