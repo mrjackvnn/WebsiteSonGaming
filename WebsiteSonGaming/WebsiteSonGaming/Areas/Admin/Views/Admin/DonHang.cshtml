@@ -1,38 +1,69 @@
-﻿@model IEnumerable<WebsiteSonGaming.Models.HOADON>
+﻿@model IEnumerable<WebsiteSonGaming.Models.DONHANG>
 
 @{
     ViewBag.Title = "DonHang";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>ĐƠN HÀNG CỦA KHÁCH</h2>
+<h2>ĐƠN HÀNG</h2>
 
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.makh)
+            Mã hóa đơn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ngaydat)
+            Tên khách hàng
         </th>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th></th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.makh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ngaydat)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.mahoadon }) |
-            @Html.ActionLink("Details", "Details", new { id=item.mahoadon }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.mahoadon })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mahoadon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenkhachhang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngaydat)
+            </td>
+            @if (item.tinhtrang == 1)
+            {
+                <td>
+                    Đã Gửi Ship
+                </td>
+                <td>
+                    @Html.ActionLink("Chi Tiết", "ChiTietDonHang", new { id = item.mahoadon })
+                </td>
+            }
+            else
+            {
+                <td>
+                    Mới
+                </td>
+                <td>
+                    @Html.ActionLink("Chi Tiết", "ChiTietDonHang", new { id = item.mahoadon })
+                </td>
+                <td>
+                    @using (Html.BeginForm("CheckTinhTrang","Admin",new { id = item.mahoadon}))
+                    {
+                        <input type="submit" value="Gửi Ship" class="btn-dark"/>
+                    }
+                </td>
+            }
+            <td>@Html.ActionLink("Xóa","XoaDonHang",new { id = item.mahoadon})</td>
+        </tr>
+    }
 
 </table>

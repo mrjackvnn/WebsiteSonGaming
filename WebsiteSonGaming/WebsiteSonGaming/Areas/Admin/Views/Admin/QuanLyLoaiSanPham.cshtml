@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebsiteSonGaming.Models.LOAISANPHAM>
+
+@{
+    ViewBag.Title = "QuanLyNhaSanXuat";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Nhà Sản Xuất</h2>
+
+<a href="@Url.Action("ThemMoiLoaiSanPham","Admin")">
+    <input type="submit" class="btn btn-dark" value="Thêm Loại" />
+</a>
+<table class="table">
+    <tr>
+        <th>
+            Tên Loại Sản Phẩm
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenloai)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaLoaiSanPham", new { id = item.maloai })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "XoaLoaiSanPham", new { id = item.maloai })
+            </td>
+        </tr>
+    }
+
+</table>

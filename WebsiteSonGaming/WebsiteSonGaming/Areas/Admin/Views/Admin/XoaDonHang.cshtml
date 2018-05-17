@@ -1,0 +1,63 @@
+﻿@model WebsiteSonGaming.Models.DONHANG
+
+@{
+    ViewBag.Title = "XoaDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa đơn hàng</h2>
+
+<h3>Bạn có chắc muốn xóa không?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-2">
+            Mã Hóa ĐƠn
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.mahoadon)
+        </dd>
+
+        <dt class="col-2">
+            Tên khách hàng
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.tenkhachhang)
+        </dd>
+
+        <dt class="col-2">
+            Ngày đặt
+        </dt>
+
+        <dd class="col-10">
+            @Html.DisplayTextFor(model => model.ngaydat)
+        </dd>
+
+        <dt class="col-2">
+            Tình Trạng
+        </dt>
+
+        <dd class="col-10">
+            @if (Model.tinhtrang == 1)
+            {
+                <p>Đã gửi ship</p>
+            }
+            else
+            {
+                <p>Mới</p>
+            }
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color offset-1">
+            <input type="submit" value="Xóa" class="btn btn-dark" />
+        </div>
+    }
+</div>
+@Html.ActionLink("Thoát", "DonHang")

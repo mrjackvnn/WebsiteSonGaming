@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="SonGaming">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12.625" name="SonGaming">
   <DataContextMoniker Name="/SonGamingDataContext" />
   <nestedChildShapes>
     <classShape Id="0c6f5243-08a5-4bca-be26-eadf081278c4" absoluteBounds="6.75, 5, 2, 1.1939925130208335">
@@ -20,12 +20,6 @@
         <elementListCompartment Id="7b7cd54a-1394-4dbe-9a1f-22a4e18db54b" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="10aa5715-54dd-49fa-8cb0-925367f6c2f3" absoluteBounds="3.5, 6.625, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/SonGamingDataContext/HOADON" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f0432fc5-b922-42e5-a1fa-375cefd10b3a" absoluteBounds="3.515, 7.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="4cee957b-7bd7-4cb6-a516-b021f9a25b55" absoluteBounds="0.75, 6.375, 2, 1.9631982421875005">
       <DataClassMoniker Name="/SonGamingDataContext/KHACHHANG" />
       <nestedChildShapes>
@@ -44,39 +38,57 @@
         <elementListCompartment Id="d7f3f5a8-76a7-4fa9-9051-dad5bf17af4d" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 3.28929768880208); (6.25 : 3.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 3.35984537760417); (6.25 : 3.35984537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SonGamingDataContext/SANPHAM/SANPHAM_CHITIETHOADON" />
       <nodes>
         <classShapeMoniker Id="b651c56b-a264-4fd0-995a-e09c70949893" />
         <classShapeMoniker Id="147d6aaf-dc19-438b-8761-8d02bf9b13f7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.31814697265625); (6.46875 : 7.31814697265625); (6.46875 : 4.07859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SonGamingDataContext/HOADON/HOADON_CHITIETHOADON" />
-      <nodes>
-        <classShapeMoniker Id="10aa5715-54dd-49fa-8cb0-925367f6c2f3" />
-        <classShapeMoniker Id="147d6aaf-dc19-438b-8761-8d02bf9b13f7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.31814697265625); (3.5 : 7.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SonGamingDataContext/KHACHHANG/KHACHHANG_HOADON" />
-      <nodes>
-        <classShapeMoniker Id="4cee957b-7bd7-4cb6-a516-b021f9a25b55" />
-        <classShapeMoniker Id="10aa5715-54dd-49fa-8cb0-925367f6c2f3" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SonGamingDataContext/LOAISANPHAM/LOAISANPHAM_SANPHAM" />
       <nodes>
         <classShapeMoniker Id="11c26659-004d-404d-a9e1-0bc9deb1eaff" />
         <classShapeMoniker Id="b651c56b-a264-4fd0-995a-e09c70949893" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.94399251302083); (3.125 : 2.31899251302083); (3.125 : 1.75); (3.5 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SonGamingDataContext/NHASANXUAT/NHASANXUAT_SANPHAM" />
       <nodes>
         <classShapeMoniker Id="22c3975e-ab76-4a4d-8ab6-92da18c71d82" />
         <classShapeMoniker Id="b651c56b-a264-4fd0-995a-e09c70949893" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6c64cd83-b898-43db-845d-37ab329146fc" absoluteBounds="4.125, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SonGamingDataContext/DONHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="689c0c37-9966-48c3-b31d-40e90995bd6f" absoluteBounds="4.14, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1fb1f502-c2fa-4951-97cc-6e0feee6f57c" absoluteBounds="2.25, 10.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/SonGamingDataContext/CTDH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72ba7254-aef7-4c98-b0f2-7cc0355c1494" absoluteBounds="2.265, 10.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1ef2c02a-a5c9-4423-a7ac-7d288541edd5" absoluteBounds="4.5, 7.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SonGamingDataContext/HOADON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81cf7924-2ff4-4e27-be9c-5d3cbb1e4458" absoluteBounds="4.515, 7.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.375); (5.5 : 4.72280110677083); (5.75 : 4.72280110677083); (5.75 : 3.28929768880208); (6.25 : 3.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/HOADON/HOADON_CHITIETHOADON" />
+      <nodes>
+        <classShapeMoniker Id="1ef2c02a-a5c9-4423-a7ac-7d288541edd5" />
+        <classShapeMoniker Id="147d6aaf-dc19-438b-8761-8d02bf9b13f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.85659912109375); (4.5 : 7.85659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SonGamingDataContext/KHACHHANG/KHACHHANG_HOADON" />
+      <nodes>
+        <classShapeMoniker Id="4cee957b-7bd7-4cb6-a516-b021f9a25b55" />
+        <classShapeMoniker Id="1ef2c02a-a5c9-4423-a7ac-7d288541edd5" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

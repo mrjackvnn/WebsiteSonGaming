@@ -1,0 +1,33 @@
+﻿@model WebsiteSonGaming.Models.LOAISANPHAM
+
+@{
+    ViewBag.Title = "ThemMoiNhaSanXuat";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm loại sản phẩm</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="offset-1">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            <p> Tên Loaị Sản Phẩm</p>
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.tenloai, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-dark" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Thoát", "QuanLyLoaiSanPham")
+</div>

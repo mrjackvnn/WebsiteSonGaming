@@ -22,6 +22,20 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
         }
         #endregion
 
+        public ActionResult ThemThanhCong()
+        {
+            return View();
+        }
+
+        public ActionResult XoaThanhCong()
+        {
+            return View();
+        }
+
+        public ActionResult SuaThanhCong()
+        {
+            return View();
+        }
         #region Quan Ly San Pham
         public ActionResult QuanLySanPham(int? page)
         {
@@ -76,10 +90,7 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             }
             return View();
         }
-        public ActionResult ThemThanhCong()
-        {
-            return View();
-        }
+        
         #endregion
 
         #region Chi Tiet San Pham
@@ -227,16 +238,132 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             db.SubmitChanges();
             return RedirectToAction("XoaThanhCong");
         }
-        public ActionResult XoaThanhCong()
-        {
-            return View();
-        }
+       
         #endregion
 
         #region Quản Lý Đơn Hàng
         public ActionResult DonHang()
         {
-            return View(db.HOADONs.ToList());
+            return View(db.DONHANGs.ToList());
+        }
+        public ActionResult ChiTietDonHang(int id)
+        {
+            var tt = db.HOADONs.First(n => n.mahoadon == id);
+            ViewBag.TT = tt.tinhtrang;
+            return View(db.CTDHs.Where(n=>n.mahoadon==id).ToList());
+        }
+        [HttpPost]
+        public ActionResult CheckTinhTrang(int id)
+        {
+            var tt = db.HOADONs.First(n => n.mahoadon == id);
+            tt.tinhtrang = 1;
+            UpdateModel(tt);
+            db.SubmitChanges();
+            return RedirectToAction("DonHang");
+        }
+
+        [HttpGet]
+        public ActionResult XoaDonHang(int id)
+        {
+            return View(db.DONHANGs.First(n => n.mahoadon == id));
+        }
+        [HttpPost, ActionName("XoaDonHang")]
+        public ActionResult XacNhanXoaDonHang(int id)
+        {
+            var hd = db.HOADONs.First(n => n.mahoadon == id);
+            db.HOADONs.DeleteOnSubmit(hd);
+            db.SubmitChanges();
+            return RedirectToAction("XoaThanhCong");
+        }
+        #endregion
+
+        #region Quan ly nha san xuat
+        public ActionResult QuanLyNhaSanXuat()
+        {
+            return View(db.NHASANXUATs.ToList());
+        }
+        [HttpGet]
+        public ActionResult ThemMoiNhaSanXuat()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemMoiNhaSanXuat(NHASANXUAT nsx)
+        {
+            db.NHASANXUATs.InsertOnSubmit(nsx);
+            db.SubmitChanges();
+            return RedirectToAction("ThemThanhCong");
+        }
+        [HttpGet]
+        public ActionResult SuaNhaSanXuat(int id)
+        {
+            return View(db.NHASANXUATs.First(n=>n.mansx==id));
+        }
+        [HttpPost]
+        public ActionResult SuaNhaSanXuat(int id,FormCollection f)
+        {
+            var nsx = db.NHASANXUATs.First(n => n.mansx == id);
+            UpdateModel(nsx);
+            db.SubmitChanges();
+            return RedirectToAction("SuaThanhCong");
+        }
+        [HttpGet]
+        public ActionResult XoaNhaSanXuat(int id)
+        {
+            return View(db.NHASANXUATs.First(n => n.mansx == id));
+        }
+        [HttpPost,ActionName("XoaNhaSanXuat")]
+        public ActionResult XacNhanXoaNSX(int id)
+        {
+            var nsx = db.NHASANXUATs.First(n => n.mansx == id);
+            db.NHASANXUATs.DeleteOnSubmit(nsx);
+            db.SubmitChanges();
+            return RedirectToAction("XoaThanhCong");
+        }
+        #endregion
+
+        #region Quan ly loai san pham
+        public ActionResult QuanLyLoaiSanPham()
+        {
+            return View(db.LOAISANPHAMs.ToList());
+        }
+        [HttpGet]
+        public ActionResult ThemMoiLoaiSanPham()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemMoiLoaiSanPham(LOAISANPHAM lsp)
+        {
+            db.LOAISANPHAMs.InsertOnSubmit(lsp);
+            db.SubmitChanges();
+            return RedirectToAction("ThemThanhCong");
+        }
+        [HttpGet]
+        public ActionResult SuaLoaiSanPham(int id)
+        {
+            return View(db.LOAISANPHAMs.First(n => n.maloai == id));
+        }
+        [HttpPost]
+        public ActionResult SuaLoaiSanPham(int id, FormCollection f)
+        {
+            var lsp = db.LOAISANPHAMs.First(n => n.maloai == id);
+            UpdateModel(lsp);
+            db.SubmitChanges();
+            return RedirectToAction("SuaThanhCong");
+        }
+        [HttpGet]
+        public ActionResult XoaLoaiSanPham(int id)
+        {
+            return View(db.LOAISANPHAMs.First(n => n.maloai == id));
+        }
+        [HttpPost, ActionName("XoaLoaiSanPham")]
+        public ActionResult XacNhanXoaLSP(int id)
+        {
+            var lsp = db.LOAISANPHAMs.First(n => n.maloai == id);
+            db.LOAISANPHAMs.DeleteOnSubmit(lsp);
+            db.SubmitChanges();
+            return RedirectToAction("XoaThanhCong");
         }
         #endregion
     }

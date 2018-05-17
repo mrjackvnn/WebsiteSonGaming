@@ -311,7 +311,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ChiTietSanPham.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\QuanLySanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\SuaSanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\XoaSanPham.cshtml" />
     <Content Include="Assets\AdminLayout\.gitignore" />
@@ -406,7 +405,19 @@
     <Content Include="Areas\Admin\Views\Admin\ChiTietKhachHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\XoaKhachHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\XoaThanhCong.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SuaThanhCong.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\DonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ChiTietDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\QuanLyNhaSanXuat.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ThemMoiNhaSanXuat.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\QuanLySanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SuaNhaSanXuat.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\XoaNhaSanXuat.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\QuanLyLoaiSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ThemMoiLoaiSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SuaLoaiSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\XoaLoaiSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\XoaDonHang.cshtml" />
     <None Include="Models\SonGaming.dbml.layout">
       <DependentUpon>SonGaming.dbml</DependentUpon>
     </None>

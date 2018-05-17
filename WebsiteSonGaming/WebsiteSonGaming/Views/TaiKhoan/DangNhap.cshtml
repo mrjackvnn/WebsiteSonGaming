@@ -13,20 +13,27 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.taikhoan, new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-                @Html.TextBox("txtTenDangNhap","",new { @class= "form-control" })
+                @Html.TextBox("txtTenDangNhap", "", new { @class = "form-control" })
                 @ViewBag.LoiDangNhap
-            </div>    
+            </div>
         </div>
         <div class="form-group row">
             @Html.LabelFor(model => model.matkhau, new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-                @Html.TextBox("txtMatKhau","",new { @class = "form-control" })
+                @Html.TextBox("txtMatKhau", "", new { @class = "form-control" })
                 @ViewBag.LoiMatKhau
             </div>
         </div>
-        <div class="form-group row">
-            <input type="submit" value="Đăng Nhập" class="btn btn-dark" />
+        <div class="row">
+            <div class="form-group col-2 offset-1">
+                <input type="submit" value="Đăng Nhập" class="btn btn-dark" />
+            </div>
+            <a class="col-2" href="@Url.Action("DangKy","TaiKhoan")">
+                <input class="btn btn-dark" value="Đăng Ký" style="width:100px;" />
+            </a>
         </div>
     </form>
 }
-    <h2>@ViewBag.ThongBao</h2>
+
+
+<h2>@ViewBag.ThongBao</h2>

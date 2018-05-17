@@ -6,13 +6,25 @@
 
 
 <div class="card mt-4">
-    <img class="card-img-top img-fluid" src="~/Assets/Images/HinhSanPham/@Model.hinhsanpham" alt="">
+    <div class="card-img-top img-fluid">
+        <div class="row">
+            <img class="col-5" src="~/Assets/Images/HinhSanPham/@Model.hinhsanpham" alt="" style="width:300px;height:350px;">
+            <div class="col-7">
+                <h3 class="card-title text-center">@Model.tensanpham</h3>
+                <h4 class="offset-1">Giá Bán: @String.Format("{0:0,0}", Model.giaban) VND </h4>
+                <h4 class="offset-1">Màu sắc: n/a</h4>
+                <h4 class="offset-1">Thông tin cơ bản: n/a </h4>
+                <h4 class="offset-1">Tình trạng mặt hàng: n/a</h4>
+                <center>
+                    <a class="offset-1" href="@Url.Action("ThemGioHang","GioHang",new { imasanpham = Model.masanpham, strURL = Request.Url})">
+                        <input class="btn btn-dark text-center" value="Mua Hàng" />
+                    </a>
+                </center>
+            </div>
+        </div>
+    </div>
     <div class="card-body">
-        <h3 class="card-title">@Model.tensanpham</h3>
-        <h4>@String.Format("{0:0,0}", Model.giaban) VND </h4>
+        <h3>Thông tin sản phẩm</h3>
         <p class="card-text">@Model.thongtin</p>
-        <a href="@Url.Action("ThemGioHang","GioHang",new { imasanpham = Model.masanpham, strURL = Request.Url})">
-            <input type="submit" class="btn btn-dark" value="Mua Hàng" />
-        </a>
     </div>
 </div>

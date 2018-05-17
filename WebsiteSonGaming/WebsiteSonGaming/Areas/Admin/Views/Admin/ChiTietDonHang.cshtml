@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebsiteSonGaming.Models.CTDH>
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Đơn Hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã Sản Phẩm
+        </th>
+        <th>
+            Tên Sản Phẩm
+        </th>
+        <th>
+            Hình Sản Phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th>
+            Tổng Tiền
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.masanpham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tensanpham)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Assets/Images/HinhSanPham/"+  item.hinhsanpham)" style="width:100px;height:100px;overflow:hidden;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dongia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tổng_Tiền)
+            </td>
+            @if (ViewBag.TT == 1)
+            {
+                <td> Đã gửi ship</td>
+            }
+            else
+            {
+                <td>
+                    @using (Html.BeginForm("CheckTinhTrang", "Admin", new { id = item.mahoadon }))
+                    {
+                        <input type="submit" value="Gửi Ship" class="btn-dark" />
+                    }
+                </td>
+            }
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Quay về", "DonHang")

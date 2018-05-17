@@ -31,15 +31,6 @@
       <Association Name="HOADON_CHITIETHOADON" Member="HOADON" ThisKey="mahoadon" OtherKey="mahoadon" Type="HOADON" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.HOADON" Member="HOADONs">
-    <Type Name="HOADON">
-      <Column Name="mahoadon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="makh" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ngaydat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" ThisKey="mahoadon" OtherKey="mahoadon" Type="CHITIETHOADON" />
-      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="makh" OtherKey="makh" Type="KHACHHANG" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
     <Type Name="KHACHHANG">
       <Column Name="makh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -63,6 +54,35 @@
       <Column Name="mansx" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="tennsx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Association Name="NHASANXUAT_SANPHAM" Member="SANPHAMs" ThisKey="mansx" OtherKey="mansx" Type="SANPHAM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONHANG" Member="DONHANGs">
+    <Type Name="DONHANG">
+      <Column Name="mahoadon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tenkhachhang" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ngaydat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="tinhtrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTDH" Member="CTDHs">
+    <Type Name="CTDH">
+      <Column Name="mahoadon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="masanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="hinhsanpham" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dongia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Tổng Tiền]" Member="Tổng_Tiền" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOADON" Member="HOADONs">
+    <Type Name="HOADON">
+      <Column Name="mahoadon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="makh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ngaydat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="tinhtrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" ThisKey="mahoadon" OtherKey="mahoadon" Type="CHITIETHOADON" />
+      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="makh" OtherKey="makh" Type="KHACHHANG" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
 </Database>
