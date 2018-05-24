@@ -5,52 +5,71 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>DANH SÁCH KHÁCH HÀNG</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.tenkhachhang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.taikhoan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.matkhau)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sodienthoai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.diachi)
-        </th>
-        <th></th>
-    </tr>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Admin</a>
+        </li>
+        <li class="breadcrumb-item active">Quản Lý Khách Hàng</li>
+    </ol>
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+        <div class="card-header">
+            <h4>DANH SÁCH KHÁCH HÀNG</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.tenkhachhang)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.taikhoan)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.matkhau)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.sodienthoai)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.diachi)
+                        </th>
+                        <th></th>
+                    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.tenkhachhang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.taikhoan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.matkhau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sodienthoai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.diachi)
-        </td>
-        <td>
-            @Html.ActionLink("Chi Tiết", "ChiTietKhachHang", new { id=item.makh })
-        </td>
-        <td>
-            @Html.ActionLink("Xóa", "XoaKhachHang", new { id = item.makh })
-        </td>
-    </tr>
-}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tenkhachhang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.taikhoan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.matkhau)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sodienthoai)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.diachi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Chi Tiết", "ChiTietKhachHang", new { id = item.makh })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Xóa", "XoaKhachHang", new { id = item.makh })
+                            </td>
+                        </tr>
+                    }
 
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -57,7 +57,7 @@
                             <a href="@Url.Action("DonHang","Admin")">Đơn Đặt Hàng</a>
                         </li>
                         <li>
-                            <a href="cards.html">Giao Vận</a>
+                            <a href="@Url.Action("GiaoVan","Admin")">Giao Vận</a>
                         </li>
                     </ul>
                 </li>
@@ -71,6 +71,12 @@
                     <a class="nav-link" href="@Url.Action("QuanLyLoaiSanPham","Admin")">
                         <i class="fa fa-fw fa-link"></i>
                         <span class="nav-link-text">Quản Lý Loại Sản Phẩm</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                    <a class="nav-link" href="@Url.Action("ThongKe","Admin")">
+                        <i class="fa fa-fw fa-amazon"></i>
+                        <span class="nav-link-text">Thống Kê Doanh Thu</span>
                     </a>
                 </li>
             </ul>

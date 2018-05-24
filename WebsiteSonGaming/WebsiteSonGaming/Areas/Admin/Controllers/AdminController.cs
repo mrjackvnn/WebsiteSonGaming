@@ -366,5 +366,16 @@ namespace WebsiteSonGaming.Areas.Admin.Controllers
             return RedirectToAction("XoaThanhCong");
         }
         #endregion
+
+        public ActionResult GiaoVan()
+        {
+            return View(db.DONHANGs.Where(n=>n.tinhtrang==1).ToList());
+        }
+
+        public ActionResult ThongKe()
+        {
+            ViewBag.TongTien = db.THONGKEs.Where(n => n.tinhtrang == 1).Sum(n => n.Tổng_tiền);
+            return View(db.THONGKEs.Where(n => n.tinhtrang == 1).ToList());
+        }
     }
 }

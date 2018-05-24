@@ -62,19 +62,13 @@
                                 <td><img src="@Url.Content("~/Assets/Images/HinhSanPham/"+  item.hinhsanpham)" style="width:100px;height:100px;overflow:hidden;" /></td>
                                 <td>@Truncate(item.thongtin, 100)</td>
                                 <td>
-                                    <a href="@Url.Action("SuaSanPham","Admin",new { id = item.masanpham})">
-                                        <input type="submit" class="btn btn-dark" value="Sửa" />
-                                    </a>
+                                    @Html.ActionLink("Sửa","SuaSanPham", new { id = item.masanpham })
                                 </td>
                                 <td>
-                                    <a href="@Url.Action("ChiTietSanPham","Admin",new { id = item.masanpham})">
-                                        <input type="submit" class="btn btn-dark" value="Chi Tiết" />
-                                    </a>
+                                    @Html.ActionLink("ChiTiết", "ChiTietSanPham", new { id = item.masanpham })
                                 </td>
                                 <td>
-                                    <a href="@Url.Action("XoaSanPham","Admin",new { id = item.masanpham})">
-                                        <input type="submit" class="btn btn-dark" value="Xóa" />
-                                    </a>
+                                    @Html.ActionLink("Xóa", "XoaSanPham", new { id = item.masanpham })
                                 </td>
                             </tr>
                         }

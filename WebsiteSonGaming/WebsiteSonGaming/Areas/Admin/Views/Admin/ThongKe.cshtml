@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebsiteSonGaming.Models.THONGKE>
+
+@{
+    ViewBag.Title = "ThongKe";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thống Kê Doanh Thu</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã Hóa Đơn
+        </th>
+        <th>
+            Ngày Xuất Đơn
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Tổng Tiền
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mahoadon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngaydat)
+        </td>
+        <td>
+            Đã gửi đơn
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tổng_tiền)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+    <tr style="color:red;font-size:20px;">
+        <td></td>
+        <td></td>
+        <td>
+            Tổng doanh thu trong tháng
+        </td>
+        <td>
+            @String.Format("{0:0,0}", ViewBag.TongTien) VND
+        </td>
+    </tr>
+</table>
+
+
+

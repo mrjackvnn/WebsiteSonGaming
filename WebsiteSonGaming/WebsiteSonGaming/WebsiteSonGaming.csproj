@@ -418,6 +418,8 @@
     <Content Include="Areas\Admin\Views\Admin\SuaLoaiSanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\XoaLoaiSanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\XoaDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\GiaoVan.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ThongKe.cshtml" />
     <None Include="Models\SonGaming.dbml.layout">
       <DependentUpon>SonGaming.dbml</DependentUpon>
     </None>

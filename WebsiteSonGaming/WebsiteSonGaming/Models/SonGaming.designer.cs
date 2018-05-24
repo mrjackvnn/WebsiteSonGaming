@@ -154,6 +154,14 @@ namespace WebsiteSonGaming.Models
 				return this.GetTable<HOADON>();
 			}
 		}
+		
+		public System.Data.Linq.Table<THONGKE> THONGKEs
+		{
+			get
+			{
+				return this.GetTable<THONGKE>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ADMIN")]
@@ -1652,6 +1660,87 @@ namespace WebsiteSonGaming.Models
 		{
 			this.SendPropertyChanging();
 			entity.HOADON = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THONGKE")]
+	public partial class THONGKE
+	{
+		
+		private int _mahoadon;
+		
+		private System.Nullable<System.DateTime> _ngaydat;
+		
+		private System.Nullable<int> _tinhtrang;
+		
+		private System.Nullable<double> _Tổng_tiền;
+		
+		public THONGKE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mahoadon", DbType="Int NOT NULL")]
+		public int mahoadon
+		{
+			get
+			{
+				return this._mahoadon;
+			}
+			set
+			{
+				if ((this._mahoadon != value))
+				{
+					this._mahoadon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaydat", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ngaydat
+		{
+			get
+			{
+				return this._ngaydat;
+			}
+			set
+			{
+				if ((this._ngaydat != value))
+				{
+					this._ngaydat = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tinhtrang", DbType="Int")]
+		public System.Nullable<int> tinhtrang
+		{
+			get
+			{
+				return this._tinhtrang;
+			}
+			set
+			{
+				if ((this._tinhtrang != value))
+				{
+					this._tinhtrang = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tổng tiền]", Storage="_Tổng_tiền", DbType="Float")]
+		public System.Nullable<double> Tổng_tiền
+		{
+			get
+			{
+				return this._Tổng_tiền;
+			}
+			set
+			{
+				if ((this._Tổng_tiền != value))
+				{
+					this._Tổng_tiền = value;
+				}
+			}
 		}
 	}
 }
