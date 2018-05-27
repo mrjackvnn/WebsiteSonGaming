@@ -287,7 +287,6 @@ C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteS
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\System.Web.WebPages.Deployment.xml
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\System.Web.WebPages.Razor.xml
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\bin\System.Web.Optimization.xml
-C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.csprojResolveAssemblyReference.cache
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.csproj.CoreCompileInputs.cache
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.csproj.CopyComplete
 C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.dll
@@ -398,3 +397,4 @@ C:\Users\SON SI HO\Google Drive\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\Webs
 C:\Users\SON SI HO\Google Drive\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.csproj.CopyComplete
 C:\Users\SON SI HO\Google Drive\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.dll
 C:\Users\SON SI HO\Google Drive\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.pdb
+C:\Users\SON SI HO\Desktop\Upload Git\WebsiteSonGaming\WebsiteSonGaming\WebsiteSonGaming\obj\Debug\WebsiteSonGaming.csprojAssemblyReference.cache
